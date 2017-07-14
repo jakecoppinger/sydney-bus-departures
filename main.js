@@ -56,19 +56,22 @@ const processData = (jsonData) => {
 
     const cleanBuses = [];
 
-    const desiredFields = [
-        "isRealtimeControlled",
-        "departureTimePlanned",
-        "departureTimeEstimated"
-    ];
+    const desiredFields = {
+        "isRealtimeControlled":null,
+        "departureTimePlanned":null,
+        "departureTimeEstimated":null,
+       // "transportation":null
+    };
 
     busesMinusAllStops.forEach((bus) => {
         const newBus = {};
 
-
-        desiredFields.forEach((field) => {
-            newBus[field] = bus[field];
-        });
+        for(const key in desiredFields) {
+            const value = desiredFields[key];
+            if(value == null) {
+                newBus[key] = bus[key];
+            }
+        }
 
        cleanBuses.push(newBus);
     });
