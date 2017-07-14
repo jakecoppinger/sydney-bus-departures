@@ -42,11 +42,25 @@ const options = {
     }
 };
 
+const addFields = (desiredFields, input) => {
+    const output = {};
+
+    for(const key in desiredFields) {
+        const value = desiredFields[key];
+        if(value == null) {
+            output[key] = input[key];
+        } else {
+            output[key] = addFields(value, input[key]);
+        }
+    }
+    return output;
+};
+
+
 const processData = (jsonData) => {
     const rawBuses = jsonData.stopEvents;
-
-
     const busesMinusAllStops = [];
+
     // Remove stopIDglobalID
     rawBuses.forEach((bus) => {
         const newBus = bus;
@@ -60,18 +74,18 @@ const processData = (jsonData) => {
         "isRealtimeControlled":null,
         "departureTimePlanned":null,
         "departureTimeEstimated":null,
-       // "transportation":null
+        "transportation": {
+            "number": null,
+            "origin": {
+                "name": null
+            }
+        }
     };
 
     busesMinusAllStops.forEach((bus) => {
-        const newBus = {};
+        const newBus = addFields(desiredFields, bus);
 
-        for(const key in desiredFields) {
-            const value = desiredFields[key];
-            if(value == null) {
-                newBus[key] = bus[key];
-            }
-        }
+
 
        cleanBuses.push(newBus);
     });
