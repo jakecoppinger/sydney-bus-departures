@@ -1,34 +1,15 @@
-var moment = require("moment");
-var request = require('request');
+"use strict";
 
-// Documentation
-// https://opendata.transport.nsw.gov.au/dataset/trip-planner-apis
+const moment = require("moment");
+const request = require('request');
+const apikey = process.env.TFNSW_KEY;
 
-// Online JSON viewer
-// http://jsonviewer.stack.hu/
+const m = moment();
+const date = m.format("YYYYMMDD");
+const time = m.format("kkmm");
 
-/*
-https://api.transport.nsw.gov.au/v1/tp/departure_mon
-?TfNSWDM=true
-&outputFormat=rapidJSON
-&coordOutputFormat=EPSG%3A4326
-&mode=direct
-&type_dm=stop
-&name_dm=203327
-&depArrMacro=dep
-&itdDate=20170713
-&itdTime=2208
-&version=10.2.2.48
-*/
 
-var m = moment();
-
-var date = m.format("YYYYMMDD");
-var time = m.format("kkmm");
-
-var apikey = process.env.TFNSW_KEY;
-
-var options = {
+const options = {
     uri: 'https://api.transport.nsw.gov.au/v1/tp/departure_mon',
     method: 'GET',
     headers: {
@@ -50,7 +31,7 @@ var options = {
     }
 };
 
-var req = request(options, function(error, response, body) {
+const callback = function(error, response, body) {
     if (error) {
         console.log(error);
         return;
@@ -60,4 +41,6 @@ var req = request(options, function(error, response, body) {
     } else {
         console.log("receive status code : " + response.statusCode);
     }
-});
+};
+
+const req = request(options, callback);
