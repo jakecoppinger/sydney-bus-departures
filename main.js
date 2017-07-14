@@ -1,13 +1,24 @@
-"use strict";
+'use strict';
+
+/*jslint node: true */
+/*jshint esversion: 6 */
 
 const moment = require("moment");
 const request = require('request');
+var fs = require('fs');
 const apikey = process.env.TFNSW_KEY;
 
 const m = moment();
 const date = m.format("YYYYMMDD");
 const time = m.format("kkmm");
 
+const prettyPrint = (json) => {
+    return JSON.stringify(json,null,2);
+};
+
+const dumpJSON = (json) => {
+    console.log(prettyPrint(json));
+};
 
 const options = {
     uri: 'https://api.transport.nsw.gov.au/v1/tp/departure_mon',
@@ -31,16 +42,70 @@ const options = {
     }
 };
 
-const callback = function(error, response, body) {
+const processData = (jsonData) => {
+    const rawBuses = jsonData.stopEvents;
+
+
+    const busesMinusAllStops = [];
+    // Remove stopIDglobalID
+    rawBuses.forEach((bus) => {
+        const newBus = bus;
+        newBus.infos[0].properties.stopIDglobalID = undefined;
+        busesMinusAllStops.push(newBus);
+    });
+
+    const cleanBuses = [];
+
+    const desiredFields = [
+        "isRealtimeControlled",
+        "departureTimePlanned",
+        "departureTimeEstimated"
+    ];
+
+    busesMinusAllStops.forEach((bus) => {
+        const newBus = {};
+
+
+        desiredFields.forEach((field) => {
+            newBus[field] = bus[field];
+        });
+
+       cleanBuses.push(newBus);
+    });
+    dumpJSON(cleanBuses);
+};
+
+const writeCache = (str) => {
+    fs.writeFile(
+        'data/cache.json',
+        str,(err) => {
+            if (err) return console.log(err);
+        }
+    );
+};
+
+const callback = (error, response, body) => {
     if (error) {
         console.log(error);
         return;
     }
     if (response.statusCode == 200) {
-        console.log(body);
+        writeCache(body);
+        processData(JSON.parse(body));
     } else {
         console.log("receive status code : " + response.statusCode);
     }
 };
 
-const req = request(options, callback);
+const useCache = true;
+
+if(useCache) {
+    fs.readFile('data/cache.json', 'utf8', function (err,data) {
+      if (err) {
+        return console.log(err);
+      }
+      processData(JSON.parse(data));
+    });
+} else {
+    const req = request(options, callback);
+}
