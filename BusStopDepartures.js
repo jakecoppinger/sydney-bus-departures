@@ -11,6 +11,32 @@ const BusStopDepartures = function(apikey) {
     const _apikey = apikey;
     let _useCache = false;
 
+    const _desiredFields = {
+        "isRealtimeControlled":null,
+        "departureTimePlanned":null,
+        "departureTimeEstimated":null,
+        "transportation": {
+            "number": null,
+            "description": null,
+            "origin": {
+                "name": null
+            },
+            "destination": {
+                "name":null
+            }
+        }
+    };
+
+    const _fieldsToReformat = {
+        "realtimeEnabled":"isRealtimeControlled",
+        "departureTimePlanned":"departureTimePlanned",
+        "departureTimeEstimated":"departureTimeEstimated",
+        "number":["transportation","number"],
+        "description":["transportation", "description"],
+        "origin":["transportation","origin","name"],
+        "destination":["transportation", "destination", "name"]
+    };
+
     this.setCacheUse = (useCache) => {
         _useCache = useCache;
     };
@@ -75,56 +101,27 @@ const BusStopDepartures = function(apikey) {
         });
     };
 
+    // Processes the raw return body into selected data
     function _processData(data) {
-        const rawBuses = data.stopEvents;
-        const busesMinusAllStops = [];
-
         // Remove stopIDglobalID
-        rawBuses.forEach((bus) => {
-            const newBus = bus;
-            newBus.infos[0].properties.stopIDglobalID = undefined;
-            busesMinusAllStops.push(newBus);
-        });
+        // rawBuses.forEach((bus) => {
+        //     const newBus = bus;
+        //     newBus.infos[0].properties.stopIDglobalID = undefined;
+        //     busesMinusAllStops.push(newBus);
+        // });
 
-        const desiredFields = {
-            "isRealtimeControlled":null,
-            "departureTimePlanned":null,
-            "departureTimeEstimated":null,
-            "transportation": {
-                "number": null,
-                "description": null,
-                "origin": {
-                    "name": null
-                },
-                "destination": {
-                    "name":null
-                }
-            }
-        };
-
-        // Can use rawBuses
-        const extractedBusFields = busesMinusAllStops.map((bus) => {
+        const rawBuses = data.stopEvents;
+        const extractedBusFields = rawBuses.map((bus) => {
             const extractor = new JSONFieldExtrator(bus);
-            return extractor.extractFields(desiredFields);
+            return extractor.extractFields(_desiredFields);
         });
-
-        const fieldsToReformat = {
-            "realtimeEnabled":"isRealtimeControlled",
-            "departureTimePlanned":"departureTimePlanned",
-            "departureTimeEstimated":"departureTimeEstimated",
-            "number":["transportation","number"],
-            "description":["transportation", "description"],
-            "origin":["transportation","origin","name"],
-            "destination":["transportation", "destination", "name"]
-        };
 
         const reformatBus = (bus) => {
             const newBus = {};
-            Object.keys(fieldsToReformat).forEach((newField)=>{
-                const oldFields = fieldsToReformat[newField];
+            Object.keys(_fieldsToReformat).forEach((newField)=>{
+                const oldFields = _fieldsToReformat[newField];
                 if(Array.isArray(oldFields)) {
                     // Recursive on newValue
-
                     const newValue = oldFields.reduce(
                         (prevVal, elem) => prevVal[elem],
                         bus);
@@ -136,10 +133,9 @@ const BusStopDepartures = function(apikey) {
             return newBus;
         };
 
-        const reformattedBuses = extractedBusFields.map(
+        return extractedBusFields.map(
             oldBus => reformatBus(oldBus)
         );
-        return reformattedBuses;
     }
     return this;
 };
