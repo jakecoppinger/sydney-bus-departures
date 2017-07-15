@@ -31,11 +31,6 @@ const setupStop = (stop, useCache, callback) => {
     }
 };
 
-let myStops = {
-    "anzac to city": "203220",
-    "370 to coogee": "203255"
-};
-
 const departuresBoardJSON = (data) => {
     const now = moment();
     return data.map((bus) => {
@@ -48,15 +43,12 @@ const departuresBoardJSON = (data) => {
             realtime = true;
         }
         
-        //console.log(timestampString);
         const timestamp = moment(timestampString);
-
         const diff = moment.duration(timestamp.diff(now));
         const minutes = diff.minutes();
 
-        //console.log(now, timestamp, timestampString, minutes, );
         return {
-            "bus":number,
+            "number":number,
             "minutes":minutes,
             "realtime":realtime
         };
@@ -72,7 +64,7 @@ const departuresBoardString = (data) => {
     });
 
     departureLines.forEach((departure) => {
-        output += departure.bus + ": " + departure.minutes + "m";
+        output += departure.number + ": " + departure.minutes + "m";
 
         if(!departure.realtime) {
             output += "  (scheduled)";
@@ -81,6 +73,74 @@ const departuresBoardString = (data) => {
         output += "\n";
     });
     return output;
+};
+
+const minutesUntilArrival = bus => {
+    const now = moment();
+    let timestampString = bus.departureTimePlanned;
+    let realtime = false;
+
+    if(typeof bus.realtimeEnabled!== "undefined" ) {
+        timestampString = bus.departureTimeEstimated;
+        realtime = true;
+    }
+    
+    const timestamp = moment(timestampString);
+
+    const diff = moment.duration(timestamp.diff(now));
+    const minutes = diff.minutes();
+
+    return {
+        "minutes": minutes,
+        "realtime": realtime
+    };
+};
+
+// Create summary string of selected routes
+// eg "396,394: 6m,[6m],[6m]"
+const routeSummaryString = (routes,numDeparturesRaw,data) => {
+    let output = routes.join("/") + ": ";
+
+    const selectedBuses = data.filter(
+        bus => routes.indexOf(bus.number) != -1);  
+
+    let arrivalLengths = selectedBuses.map(
+        bus => minutesUntilArrival(bus));
+
+    // Sort arrivals by soonest first
+    arrivalLengths.sort((a,b)=>a.minutes - b.minutes);
+
+    // Only show first `numDepartures` arrivals
+    let numDepartures = arrivalLengths.length;
+    if(numDepartures != -1) {
+        numDepartures = numDeparturesRaw;
+    }
+
+    for(let i = 0; i < numDepartures; i++) {
+        const duration = arrivalLengths[i];
+
+        if(duration.realtime) {
+            output += duration.minutes + "m";
+        } else {
+            output += "[" + duration.minutes + "m]";
+        }
+
+        if(i != numDepartures - 1) {
+           output += ","; 
+        }
+    }
+    return output;
+};
+
+// Return array of routes that are arriving in the data
+const stoppingServices = (data) => {
+    let routes = [];
+    data.forEach((bus) => {
+        if(routes.indexOf(bus.number) == -1) {
+            routes.push(bus.number);
+        }
+    });
+    return routes;
 };
 
 let main = () => {
@@ -92,6 +152,10 @@ let main = () => {
         stop.getDeparturesForStop(stopID, (data) => {
            console.log(departuresBoardString(data));
            //dumpJSON(data);
+           console.log("////");
+           console.log(stoppingServices(data));
+           console.log("--------");
+           console.log(routeSummaryString(["396", "394"], 3, data));
         });
     });
 };
