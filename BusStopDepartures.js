@@ -112,7 +112,10 @@ const BusStopDepartures = function(apikey) {
             "realtimeEnabled":"isRealtimeControlled",
             "departureTimePlanned":"departureTimePlanned",
             "departureTimeEstimated":"departureTimeEstimated",
-            "number":["transportation","number"]
+            "number":["transportation","number"],
+            "description":["transportation", "description"],
+            "origin":["transportation","origin","name"],
+            "destination":["transportation", "destination", "name"]
         };
 
         const reformatBus = (bus) => {
@@ -121,9 +124,11 @@ const BusStopDepartures = function(apikey) {
                 const oldFields = fieldsToReformat[newField];
                 if(Array.isArray(oldFields)) {
                     // Recursive on newValue
-                    newBus[newField] = oldFields.reduce(
-                        (prevVal, elem) => prevVal[elem]
-                        );
+
+                    const newValue = oldFields.reduce(
+                        (prevVal, elem) => prevVal[elem],
+                        bus);
+                    newBus[newField] = newValue;
                 } else {
                     newBus[newField] = bus[oldFields];
                 }
@@ -136,8 +141,6 @@ const BusStopDepartures = function(apikey) {
         );
         return reformattedBuses;
     }
-
-
     return this;
 };
 
