@@ -41,8 +41,16 @@ const BusStopDepartures = function(apikey) {
         _useCache = useCache;
     };
 
+    // Set response from cache
     this.setResponseForStop = (input) => {
         _tfnswData = input;
+    };
+
+    // The main function for getting data from TfNSW
+    this.getDeparturesForStop = (stop, callback) => {
+        this._getResponseForStop(stop, (data) => {
+            callback(_processData(data));
+        });
     };
 
     this._getResponseForStop = (stop, callback) => {
@@ -54,18 +62,6 @@ const BusStopDepartures = function(apikey) {
     };
 
     this.requestResponseForStop = (stop, callback) => {
-        const requestCallback = (error, response, body) => {
-            if (error) {
-                console.log(error);
-                return;
-            }
-            if (response.statusCode == 200) {
-                callback(JSON.parse(body));
-            } else {
-                console.log("ERROR: requestResponseForStop: received status code : " + response.statusCode);
-            }
-        };
-
         const m = moment();
         const date = m.format("YYYYMMDD");
         const time = m.format("kkmm");
@@ -92,13 +88,19 @@ const BusStopDepartures = function(apikey) {
             }
         };
 
-        const req = request(options, requestCallback);
-    };
+        const requestCallback = (error, response, body) => {
+            if (error) {
+                console.log(error);
+                return;
+            }
+            if (response.statusCode == 200) {
+                callback(JSON.parse(body));
+            } else {
+                console.log("ERROR: requestResponseForStop: received status code : " + response.statusCode);
+            }
+        };
 
-    this.getDeparturesForStop = (stop, callback) => {
-        this._getResponseForStop(stop, (data) => {
-            callback(_processData(data));
-        });
+        const req = request(options, requestCallback);
     };
 
     // Processes the raw return body into selected data
