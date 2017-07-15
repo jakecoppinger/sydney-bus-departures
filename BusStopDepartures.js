@@ -210,6 +210,62 @@ const BusStopDepartures = function(apikey) {
         return output;
     };
 
+    // Return array of routes that are arriving in the data
+    this.stoppingServices = () => {
+        let routes = [];
+        _lastReformattedResponse.forEach((bus) => {
+            if(routes.indexOf(bus.number) == -1) {
+                routes.push(bus.number);
+            }
+        });
+        return routes;
+    };
+
+
+    this.departuresBoardJSON = () => {
+        const now = moment();
+        return _lastReformattedResponse.map((bus) => {
+            const number = bus.number;
+            let timestampString = bus.departureTimePlanned;
+            let realtime = false;
+
+            if(typeof bus.realtimeEnabled!== "undefined" ) {
+                timestampString = bus.departureTimeEstimated;
+                realtime = true;
+            }
+            
+            const timestamp = moment(timestampString);
+            const diff = moment.duration(timestamp.diff(now));
+            const minutes = diff.minutes();
+
+            return {
+                "number":number,
+                "minutes":minutes,
+                "realtime":realtime
+            };
+        });
+    };
+
+    this.departuresBoardString = () => {
+        let output = "";
+        let departureLines = this.departuresBoardJSON();
+
+        departureLines.sort(function(a, b) { 
+            return a.minutes - b.minutes;
+        });
+
+        departureLines.forEach((departure) => {
+            output += departure.number + ": " + departure.minutes + "m";
+
+            if(!departure.realtime) {
+                output += "  (scheduled)";
+            }
+
+            output += "\n";
+        });
+        return output;
+    };
+
     return this;
 };
 

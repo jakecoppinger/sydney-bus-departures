@@ -31,63 +31,10 @@ const setupStop = (stop, useCache, callback) => {
     }
 };
 
-const departuresBoardJSON = (data) => {
-    const now = moment();
-    return data.map((bus) => {
-        const number = bus.number;
-        let timestampString = bus.departureTimePlanned;
-        let realtime = false;
-
-        if(typeof bus.realtimeEnabled!== "undefined" ) {
-            timestampString = bus.departureTimeEstimated;
-            realtime = true;
-        }
-        
-        const timestamp = moment(timestampString);
-        const diff = moment.duration(timestamp.diff(now));
-        const minutes = diff.minutes();
-
-        return {
-            "number":number,
-            "minutes":minutes,
-            "realtime":realtime
-        };
-    });
-};
-
-const departuresBoardString = (data) => {
-    let output = "";
-    let departureLines = departuresBoardJSON(data);
-
-    departureLines.sort(function(a, b) { 
-        return a.minutes - b.minutes;
-    });
-
-    departureLines.forEach((departure) => {
-        output += departure.number + ": " + departure.minutes + "m";
-
-        if(!departure.realtime) {
-            output += "  (scheduled)";
-        }
-
-        output += "\n";
-    });
-    return output;
-};
 
 
 
 
-// Return array of routes that are arriving in the data
-const stoppingServices = (data) => {
-    let routes = [];
-    data.forEach((bus) => {
-        if(routes.indexOf(bus.number) == -1) {
-            routes.push(bus.number);
-        }
-    });
-    return routes;
-};
 
 let main = () => {
     let stop = new BusStopDepartures(apikey);
@@ -97,10 +44,10 @@ let main = () => {
     setupStop(stop, useCache, ()=> {
         stop.getDeparturesForStop(stopID, () => {
             const data = stop.lastRequestData();
-            console.log(departuresBoardString(data));
+            console.log(stop.departuresBoardString());
             //dumpJSON(data);
             console.log("////");
-            console.log(stoppingServices(data));
+            console.log(stop.stoppingServices());
             console.log("--------");
             console.log(stop.routeSummaryString(["396", "394"], 3));
         });
