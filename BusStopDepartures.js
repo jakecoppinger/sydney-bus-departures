@@ -47,7 +47,7 @@ const BusStopDepartures = function(apikey) {
     this.setResponseForStop = (input) => {
         _tfnswData = input;
     };
-    
+
     this.lastRequestData = () => {
         return _lastReformattedResponse;
     };
@@ -152,6 +152,64 @@ const BusStopDepartures = function(apikey) {
             oldBus => reformatBus(oldBus)
         );
     };
+
+    this._minutesUntilArrival = bus => {
+        const now = moment();
+        let timestampString = bus.departureTimePlanned;
+        let realtime = false;
+
+        if(typeof bus.realtimeEnabled!== "undefined" ) {
+            timestampString = bus.departureTimeEstimated;
+            realtime = true;
+        }
+        
+        const timestamp = moment(timestampString);
+
+        const diff = moment.duration(timestamp.diff(now));
+        const minutes = diff.minutes();
+
+        return {
+            "minutes": minutes,
+            "realtime": realtime
+        };
+    };
+
+    // Create summary string of selected routes
+    // eg "396,394: 6m,[6m],[6m]"
+    this.routeSummaryString = (routes,numDeparturesRaw) => {
+        let output = routes.join("/") + ": ";
+
+        const selectedBuses = _lastReformattedResponse.filter(
+            bus => routes.indexOf(bus.number) != -1);  
+
+        let arrivalLengths = selectedBuses.map(
+            bus => this._minutesUntilArrival(bus));
+
+        // Sort arrivals by soonest first
+        arrivalLengths.sort((a,b)=>a.minutes - b.minutes);
+
+        // Only show first `numDepartures` arrivals
+        let numDepartures = arrivalLengths.length;
+        if(numDepartures != -1) {
+            numDepartures = numDeparturesRaw;
+        }
+
+        for(let i = 0; i < numDepartures; i++) {
+            const duration = arrivalLengths[i];
+
+            if(duration.realtime) {
+                output += duration.minutes + "m";
+            } else {
+                output += "[" + duration.minutes + "m]";
+            }
+
+            if(i != numDepartures - 1) {
+               output += ","; 
+            }
+        }
+        return output;
+    };
+
     return this;
 };
 
