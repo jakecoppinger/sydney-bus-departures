@@ -5,7 +5,8 @@
 const moment = require("moment");
 const request = require('request');
 var fs = require('fs');
-var JSONFieldExtrator = require('./JSONFieldExtractor.js');
+
+var BusStopDepartures = require('./BusStopDepartures.js');
 
 const apikey = process.env.TFNSW_KEY;
 
@@ -43,72 +44,6 @@ const options = {
     }
 };
 
-const processData = (jsonData) => {
-    const rawBuses = jsonData.stopEvents;
-    const busesMinusAllStops = [];
-
-    // Remove stopIDglobalID
-    rawBuses.forEach((bus) => {
-        const newBus = bus;
-        newBus.infos[0].properties.stopIDglobalID = undefined;
-        busesMinusAllStops.push(newBus);
-    });
-
-    const desiredFields = {
-        "isRealtimeControlled":null,
-        "departureTimePlanned":null,
-        "departureTimeEstimated":null,
-        "transportation": {
-            "number": null,
-            "description": null,
-            "origin": {
-                "name": null
-            },
-            "destination": {
-                "name":null
-            }
-        }
-    };
-
-    // Can use rawBuses
-    const extractedBusFields = [];
-    busesMinusAllStops.forEach((bus) => {
-        const extractor = new JSONFieldExtrator(bus);
-        const newBus = extractor.extractFields(desiredFields);
-        extractedBusFields.push(newBus);
-    });
-
-    const fieldsToReformat = {
-        "realtimeEnabled":"isRealtimeControlled",
-        "departureTimePlanned":"departureTimePlanned",
-        "departureTimeEstimated":"departureTimeEstimated",
-        "number":["transportation","number"]
-    };
-
-
-
-    const reformatBus = (bus) => {
-        const newBus = {};
-        Object.keys(fieldsToReformat).forEach((newField)=>{
-            const oldFields = fieldsToReformat[newField];
-            if(Array.isArray(oldFields)) {
-                // Recursive on newValue
-                newBus[newField] = oldFields.reduce(
-                    (prevVal, elem) => prevVal[elem]
-                    );
-            } else {
-                newBus[newField] = bus[oldFields];
-            }
-        });
-        return newBus;
-    };
-
-    const reformattedBuses = extractedBusFields.map(
-        oldBus => reformatBus(oldBus)
-    );
-
-    dumpJSON(reformattedBuses);
-};
 
 const writeCache = (str) => {
     fs.writeFile(
@@ -119,6 +54,12 @@ const writeCache = (str) => {
     );
 };
 
+const depaturesResponseHandler = (output) => {
+    const data = JSON.parse(output);
+    var depatures = new BusStopDepartures(data);
+    dumpJSON(depatures.getDepartures());
+};
+
 const callback = (error, response, body) => {
     if (error) {
         console.log(error);
@@ -126,7 +67,7 @@ const callback = (error, response, body) => {
     }
     if (response.statusCode == 200) {
         writeCache(body);
-        processData(JSON.parse(body));
+        depaturesResponseHandler(body);
     } else {
         console.log("receive status code : " + response.statusCode);
     }
@@ -139,9 +80,7 @@ if(useCache) {
         if (err) {
             return console.log(err);
         }
-        const data = JSON.parse(output);
-        processData(data);
-
+        depaturesResponseHandler(output);
     });
 } else {
     const req = request(options, callback);
