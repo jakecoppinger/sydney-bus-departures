@@ -10,6 +10,8 @@ const BusStopDepartures = function(apikey) {
     let _tfnswData = null;
     const _apikey = apikey;
     let _useCache = false;
+    let _lastResponse = null;
+    let _lastReformattedResponse = null;
 
     const _desiredFields = {
         "isRealtimeControlled":null,
@@ -45,22 +47,31 @@ const BusStopDepartures = function(apikey) {
     this.setResponseForStop = (input) => {
         _tfnswData = input;
     };
+    
+    this.lastRequestData = () => {
+        return _lastReformattedResponse;
+    };
 
     // The main function for getting data from TfNSW
+    // **Calls callback when data ready**
     this.getDeparturesForStop = (stop, callback) => {
-        this._getResponseForStop(stop, (data) => {
-            callback(_processData(data));
+        this._getResponseForStop(stop, () => {
+            _lastReformattedResponse = this._processData(_tfnswData);
+            callback();
         });
     };
 
+    // Runs callback when response is ready
+    // Either runs HTTP request or calls back immediately for cache
     this._getResponseForStop = (stop, callback) => {
         if(_useCache) {
-            callback(_tfnswData);
+            callback();
         } else {
-            this.requestResponseForStop(stop, (data) => callback(data));
+            this.requestResponseForStop(stop, () => callback());
         }
     };
 
+    // Run HTTP request for data. Runs callback when done
     this.requestResponseForStop = (stop, callback) => {
         const m = moment();
         const date = m.format("YYYYMMDD");
@@ -94,7 +105,9 @@ const BusStopDepartures = function(apikey) {
                 return;
             }
             if (response.statusCode == 200) {
-                callback(JSON.parse(body));
+                // Money line!
+                _tfnswData = JSON.parse(body);
+                callback();
             } else {
                 console.log("ERROR: requestResponseForStop: received status code : " + response.statusCode);
             }
@@ -104,7 +117,7 @@ const BusStopDepartures = function(apikey) {
     };
 
     // Processes the raw return body into selected data
-    function _processData(data) {
+    this._processData = function(data) {
         // Remove stopIDglobalID
         // rawBuses.forEach((bus) => {
         //     const newBus = bus;
@@ -138,7 +151,7 @@ const BusStopDepartures = function(apikey) {
         return extractedBusFields.map(
             oldBus => reformatBus(oldBus)
         );
-    }
+    };
     return this;
 };
 

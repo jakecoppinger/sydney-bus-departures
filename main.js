@@ -145,17 +145,18 @@ const stoppingServices = (data) => {
 
 let main = () => {
     let stop = new BusStopDepartures(apikey);
-    const stopID = "203220"; //myStops["anzac to city"];
+    const stopID = "203220";
     const useCache = true;
 
     setupStop(stop, useCache, ()=> {
-        stop.getDeparturesForStop(stopID, (data) => {
-           console.log(departuresBoardString(data));
-           //dumpJSON(data);
-           console.log("////");
-           console.log(stoppingServices(data));
-           console.log("--------");
-           console.log(routeSummaryString(["396", "394"], 3, data));
+        stop.getDeparturesForStop(stopID, () => {
+            const data = stop.lastRequestData();
+            console.log(departuresBoardString(data));
+            //dumpJSON(data);
+            console.log("////");
+            console.log(stoppingServices(data));
+            console.log("--------");
+            console.log(routeSummaryString(["396", "394"], 3, data));
         });
     });
 };
