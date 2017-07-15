@@ -103,10 +103,9 @@ const processData = (jsonData) => {
         return newBus;
     };
 
-    const reformattedBuses = [];
-    extractedBusFields.forEach((bus) => {
-        reformattedBuses.push(reformatBus(bus));
-    });
+    const reformattedBuses = extractedBusFields.map(
+        oldBus => reformatBus(oldBus)
+    );
 
     dumpJSON(reformattedBuses);
 };
