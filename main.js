@@ -85,25 +85,27 @@ const processData = (jsonData) => {
         "number":["transportation","number"]
     };
 
+
+
+    const reformatBus = (bus) => {
+        const newBus = {};
+        Object.keys(fieldsToReformat).forEach((newField)=>{
+            const oldFields = fieldsToReformat[newField];
+            if(Array.isArray(oldFields)) {
+                // Recursive on newValue
+                newBus[newField] = oldFields.reduce(
+                    (prevVal, elem) => prevVal[elem]
+                    );
+            } else {
+                newBus[newField] = bus[oldFields];
+            }
+        });
+        return newBus;
+    };
+
     const reformattedBuses = [];
     extractedBusFields.forEach((bus) => {
-        const newBus = {};
-        for(const newField in fieldsToReformat) {
-            if(fieldsToReformat.hasOwnProperty(newField)) {
-                const oldFields = fieldsToReformat[newField];
-
-                if(Array.isArray(oldFields)) {
-                    let newValue = bus;
-                    for(const oldField of oldFields) {
-                        newValue = newValue[oldField];
-                    }
-                    newBus[newField] = newValue;
-                } else {
-                    newBus[newField] = bus[oldFields];
-                }
-            }
-        }
-        reformattedBuses.push(newBus);
+        reformattedBuses.push(reformatBus(bus));
     });
 
     dumpJSON(reformattedBuses);
