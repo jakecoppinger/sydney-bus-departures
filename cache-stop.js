@@ -18,6 +18,6 @@ const writeString = (str) => {
 var stopID = "203327";
 var stop = new BusStopDepartures(apikey);
 
-stop.requestResponseForStop(stopID, (data) => {
-    writeString(JSON.stringify(data,null,2));
+stop.getDeparturesForStop(stopID, () => {
+    writeString(JSON.stringify(stop.rawData(),null,2));
 });

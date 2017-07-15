@@ -4,6 +4,8 @@
 
 var fs = require('fs');
 var BusStopDepartures = require('./BusStopDepartures.js');
+var DeparturesFormatter = require('./DeparturesFormatter.js');
+
 const apikey = process.env.TFNSW_KEY;
 const moment = require("moment");
 
@@ -43,13 +45,14 @@ let main = () => {
 
     setupStop(stop, useCache, ()=> {
         stop.getDeparturesForStop(stopID, () => {
-            const data = stop.lastRequestData();
-            console.log(stop.departuresBoardString());
+            const formatter = new DeparturesFormatter(stop.data());
+
+            console.log(formatter.departuresBoardString());
             //dumpJSON(data);
             console.log("////");
-            console.log(stop.stoppingServices());
+            console.log(formatter.stoppingServices());
             console.log("--------");
-            console.log(stop.routeSummaryString(["396", "394"], 3));
+            console.log(formatter.routeSummaryString(["396", "394"], 3));
         });
     });
 };
