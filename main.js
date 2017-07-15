@@ -1,11 +1,12 @@
 'use strict';
-
 /*jslint node: true */
 /*jshint esversion: 6 */
 
 const moment = require("moment");
 const request = require('request');
 var fs = require('fs');
+var JSONFieldExtrator = require('./JSONFieldExtractor.js');
+
 const apikey = process.env.TFNSW_KEY;
 
 const m = moment();
@@ -42,21 +43,6 @@ const options = {
     }
 };
 
-const addFields = (desiredFields, input) => {
-    const output = {};
-
-    for(const key in desiredFields) {
-        const value = desiredFields[key];
-        if(value == null) {
-            output[key] = input[key];
-        } else {
-            output[key] = addFields(value, input[key]);
-        }
-    }
-    return output;
-};
-
-
 const processData = (jsonData) => {
     const rawBuses = jsonData.stopEvents;
     const busesMinusAllStops = [];
@@ -68,28 +54,59 @@ const processData = (jsonData) => {
         busesMinusAllStops.push(newBus);
     });
 
-    const cleanBuses = [];
-
     const desiredFields = {
         "isRealtimeControlled":null,
         "departureTimePlanned":null,
         "departureTimeEstimated":null,
         "transportation": {
             "number": null,
+            "description": null,
             "origin": {
                 "name": null
+            },
+            "destination": {
+                "name":null
             }
         }
     };
 
+    // Can use rawBuses
+    const extractedBusFields = [];
     busesMinusAllStops.forEach((bus) => {
-        const newBus = addFields(desiredFields, bus);
-
-
-
-       cleanBuses.push(newBus);
+        const extractor = new JSONFieldExtrator(bus);
+        const newBus = extractor.extractFields(desiredFields);
+        extractedBusFields.push(newBus);
     });
-    dumpJSON(cleanBuses);
+
+    const fieldsToReformat = {
+        "realtimeEnabled":"isRealtimeControlled",
+        "departureTimePlanned":"departureTimePlanned",
+        "departureTimeEstimated":"departureTimeEstimated",
+        "number":["transportation","number"]
+    };
+
+    const reformattedBuses = [];
+    extractedBusFields.forEach((bus) => {
+        const newBus = {};
+        for(const newField in fieldsToReformat) {
+            if(fieldsToReformat.hasOwnProperty(newField)) {
+                const oldFields = fieldsToReformat[newField];
+
+                if(Array.isArray(oldFields)) {
+                    let newValue = bus;
+                    for(const oldField of oldFields) {
+                        newValue = newValue[oldField];
+                    }
+                    newBus[newField] = newValue;
+                } else {
+                    newBus[newField] = bus[oldFields];
+                }
+            }
+        }
+        reformattedBuses.push(newBus);
+    });
+
+    dumpJSON(reformattedBuses);
 };
 
 const writeCache = (str) => {
@@ -117,11 +134,13 @@ const callback = (error, response, body) => {
 const useCache = true;
 
 if(useCache) {
-    fs.readFile('data/cache.json', 'utf8', function (err,data) {
-      if (err) {
-        return console.log(err);
-      }
-      processData(JSON.parse(data));
+    fs.readFile('data/cache.json', 'utf8', function (err,output) {
+        if (err) {
+            return console.log(err);
+        }
+        const data = JSON.parse(output);
+        processData(data);
+
     });
 } else {
     const req = request(options, callback);

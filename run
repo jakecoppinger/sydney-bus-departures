@@ -1,4 +1,4 @@
 #!/bin/bash
 set -e
-jshint --reporter=node_modules/jshint-stylish main.js
+jshint --reporter=node_modules/jshint-stylish JSONFieldExtractor.js main.js
 node main.js
