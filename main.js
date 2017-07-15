@@ -30,10 +30,17 @@ const setupStop = (stop, useCache, callback) => {
     }
 };
 
+
+
+let myStops = {
+    "anzac to city": "203220",
+    "370 to coogee": "203255"
+};
+
 let main = () => {
     let stop = new BusStopDepartures(apikey);
-    const stopID = "203327";
-    const useCache = true;
+    const stopID = myStops["anzac to city"];
+    const useCache = false;
 
     setupStop(stop, useCache, ()=> {
         stop.getDeparturesForStop(stopID, (data) => {
