@@ -2,9 +2,9 @@
 /*jslint node: true */
 /*jshint esversion: 6 */
 
-var fs = require('fs');
-var BusStopDepartures = require('./BusStopDepartures.js');
-var DeparturesFormatter = require('./DeparturesFormatter.js');
+const fs = require('fs');
+const BusStopDepartures = require('./BusStopDepartures.js');
+const DeparturesFormatter = require('./DeparturesFormatter.js');
 
 const apikey = process.env.TFNSW_KEY;
 const moment = require("moment");
@@ -33,26 +33,22 @@ const setupStop = (stop, useCache, callback) => {
     }
 };
 
-
-
-
-
-
 let main = () => {
     let stop = new BusStopDepartures(apikey);
-    const stopID = "203220";
-    const useCache = true;
+    const stopID = "203255"; //"203220";
+    const useCache = false;
 
     setupStop(stop, useCache, ()=> {
         stop.getDeparturesForStop(stopID, () => {
-            const formatter = new DeparturesFormatter(stop.data());
-
-            console.log(formatter.departuresBoardString());
+            const data = stop.data();
+            const formatter = new DeparturesFormatter(data);
+            //console.log(stop.compactData());
+            //console.log(formatter.departuresBoardString());
             //dumpJSON(data);
             console.log("////");
-            console.log(formatter.stoppingServices());
+            //console.log(formatter.stoppingServices());
             console.log("--------");
-            console.log(formatter.routeSummaryString(["396", "394"], 3));
+            console.log(formatter.routeSummaryString(["370"], 3));
         });
     });
 };

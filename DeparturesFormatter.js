@@ -8,7 +8,6 @@ const DeparturesFormatter = function(data) {
     let _data = data;
 
     this._minutesUntilArrival = bus => {
-        const now = moment();
         let timestampString = bus.departureTimePlanned;
         let realtime = false;
 
@@ -20,10 +19,9 @@ const DeparturesFormatter = function(data) {
         const busTimestamp = moment(timestampString);
         const zeroSecondsNow = moment().set({second:0,millisecond:0});
         var duration = moment.duration(busTimestamp.diff(zeroSecondsNow));
-        var minutes = duration.asMinutes();
 
         return {
-            "minutes": minutes,
+            "minutes": duration.asMinutes(),
             "realtime": realtime
         };
     };
