@@ -20,7 +20,7 @@ app.get('/v1/summary', function (req, res) {
     let routes = req.query.routes.split(',');
     let num = req.query.num;
 
-    console.log(`/v1/summary  stopID: $(stopID), routes:${JSON.stringify(routes)}, num:${num}`);
+    console.log(`/v1/summary  stopID: ${stopID}, routes:${JSON.stringify(routes)}, num:${num}`);
 
     let stop = new BusStopDepartures(apikey);
 
