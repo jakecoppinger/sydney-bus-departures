@@ -1,3 +1,5 @@
+var development = false;
+
 Number.prototype.toRadians = function() {
    return this * Math.PI / 180;
 };
@@ -26,7 +28,12 @@ function distance(position1,position2){
 var currentStop = 0;
 var programStart = new Date();
 
-var endpoint = "http://192.168.0.5:3000/v1/closestfavourites";
+var endpoint = "https://sydney-bus-departures.herokuapp.com/v1/summary";
+
+if(development) {
+    endpoint = "http://192.168.0.5:3000/v1/summary";
+}
+
 
 // var stops = [{
 //         name: "UNSW > Central",
