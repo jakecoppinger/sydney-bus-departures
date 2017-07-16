@@ -45,7 +45,9 @@ const DeparturesFormatter = function(data) {
         // Only show first `numDepartures` arrivals
         let numDepartures = arrivalLengths.length;
         if(numDepartures != -1) {
-            numDepartures = numDeparturesRaw;
+            numDepartures = Math.min(
+                numDeparturesRaw, arrivalLengths.length
+                );
         }
 
         for(let i = 0; i < numDepartures; i++) {
