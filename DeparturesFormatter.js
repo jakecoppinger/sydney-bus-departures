@@ -17,10 +17,10 @@ const DeparturesFormatter = function(data) {
             realtime = true;
         }
         
-        const timestamp = moment(timestampString);
-
-        const diff = moment.duration(timestamp.diff(now));
-        const minutes = diff.minutes();
+        const busTimestamp = moment(timestampString);
+        const zeroSecondsNow = moment().set({second:0,millisecond:0});
+        var duration = moment.duration(busTimestamp.diff(zeroSecondsNow));
+        var minutes = duration.asMinutes();
 
         return {
             "minutes": minutes,

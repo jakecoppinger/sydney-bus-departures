@@ -33,8 +33,8 @@ const BusStopDepartures = function(apikey) {
         "departureTimePlanned":"departureTimePlanned",
         "departureTimeEstimated":"departureTimeEstimated",
         "number":["transportation","number"],
-        "description":["transportation", "description"],
-        "origin":["transportation","origin","name"],
+        //"description":["transportation", "description"],
+        //"origin":["transportation","origin","name"],
         "destination":["transportation", "destination", "name"]
     };
 
@@ -129,7 +129,6 @@ const BusStopDepartures = function(apikey) {
         // });
 
         const rawBuses = data.stopEvents;
-        console.log(data.stopEvents);
 
         const extractedBusFields = rawBuses.map((bus) => {
             const extractor = new JSONFieldExtrator(bus);
@@ -157,6 +156,20 @@ const BusStopDepartures = function(apikey) {
             oldBus => reformatBus(oldBus)
         );
     };
+
+    this.compactData = function () {
+        _lastReformattedResponse.forEach((bus) => {
+            let output = "";
+
+            output += bus.number;
+            output += "/   plan: " + bus.departureTimePlanned;
+            output += "   est: " + bus.departureTimeEstimated;
+
+            console.log(output);
+        });
+    };
+
+
     return this;
 };
 
