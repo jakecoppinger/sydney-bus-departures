@@ -4,8 +4,11 @@ Sydney Buses
 # Work in progress!
 
 
-## Documentation
+## Transport for NSW Documentation
 https://opendata.transport.nsw.gov.au/dataset/trip-planner-apis
+
+## Pebble app builder documentation
+http://simplyjs.io/
 
 ## Online JSON viewer
 http://jsonviewer.stack.hu/
