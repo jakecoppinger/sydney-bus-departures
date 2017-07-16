@@ -7,6 +7,8 @@ The [Transport for NSW Open Data](https://opendata.transport.nsw.gov.au/dataset/
 
 **Very early stage and may change! Please email me if you find this useful so I can let you know of changes.**
 
+You can find stop IDs on Google Maps or the [TfNSW Trip Planner](https://transportnsw.info/trip#/).
+
 # Endpoints
 
 ## GET `/v1/summary`
@@ -15,11 +17,12 @@ If you want a super simple way to get realtime data for one or more routes from 
 
 ### Example
 
-[https://sydney-bus-departures.herokuapp.com/v1/summary?stop=203220&routes=396,394&num=3](https://sydney-bus-departures.herokuapp.com/v1/summary?stop=203220&routes=396,394&num=3)
+UNSW to Museum Station  
+[https://sydney-bus-departures.herokuapp.com/v1/summary?stop=203220&routes=394,396,399](https://sydney-bus-departures.herokuapp.com/v1/summary?stop=203220&routes=394,396,399)
 
 ```
 Response
-396/394: 3m,15m,26m
+394/396/399: 3m,[20m],35m
 ```
 
 ### Spec
