@@ -9,7 +9,7 @@ The [Transport for NSW Open Data](https://opendata.transport.nsw.gov.au/dataset/
 
 You can find stop IDs on Google Maps or the [TfNSW Trip Planner](https://transportnsw.info/trip#/).
 
-# Endpoints
+# Usage
 
 ## GET `/v1/summary`
 
@@ -52,20 +52,20 @@ All the best data for your desired stop!
 
 ```
 Response:
-[  
-  {  
+[
+  {
     "realtimeEnabled":true,
     "departureTimePlanned":"2017-07-16T12:30:00Z",
     "departureTimeEstimated":"2017-07-16T12:29:00Z",
     "number":"394",
     "destination":"CITY Circular Quay"
   },
-  {  
+  {
     "departureTimePlanned":"2017-07-16T12:39:00Z",
     "number":"396",
     "destination":"CITY Circular Quay"
   },
-  {  
+  {
     "departureTimePlanned":"2017-07-16T12:44:00Z",
     "number":"393",
     "destination":"Railway Square"
@@ -92,6 +92,11 @@ https://sydney-bus-departures.herokuapp.com/v1/departures?stop=STOP
 ## Development
 
 Written in ES6 JavaScript running behind an Express webserver. The API key is pulled from the `$TFNSW_KEY` bash environment variable.
+
+To get an api key you will need to create an account at [opendata.transport.nsw.gov.au](https://opendata.transport.nsw.gov.au). The [Getting Started](https://opendata.transport.nsw.gov.au/get-started) page is great resource for the TfNSW APIs.
+
+Add `export NXTBUS_API_KEY=YOUR_API_KEY` to your `.bashrc` or `.zshrc` with you API key, or just run this command each time you open a terminal.
+
 
 To get started:
 
