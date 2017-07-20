@@ -97,14 +97,32 @@ To get an api key you will need to create an account at [opendata.transport.nsw.
 
 Add `export NXTBUS_API_KEY=YOUR_API_KEY` to your `.bashrc` or `.zshrc` with you API key, or just run this command each time you open a terminal.
 
-
-To get started:
+Install Yarn globally for package management: 
 
 ```
-npm install
+npm install -g yarn
+```
+
+Install packages:
+
+```
+yarn install
+```
+
+Start server:
+
+```
 npm start
-# node server.js works too
 ```
+
+### Example URLS
+
+Summary (plain text):  
+[http://localhost:3000/v1/summary?stop=203220&routes=394,396,399](http://localhost:3000/v1/summary?stop=203220&routes=394,396,399)
+
+Departures (JSON):  
+[http://localhost:3000/v1/departures?stop=203220](http://localhost:3000/v1/departures?stop=203220)
+
 
 ## Pebble app
 I also built a basic Pebble app which uses this data, see my [pebble-sydney-bus-departures](https://github.com/jakecoppinger/pebble-sydney-bus-departures) repo for details.
