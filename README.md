@@ -18,7 +18,7 @@ If you want a super simple way to get realtime data for one or more routes from 
 ### Example
 
 UNSW to Museum Station  
-[https://sydney-bus-departures.herokuapp.com/v1/summary?stop=203220&routes=394,396,399](https://sydney-bus-departures.herokuapp.com/v1/summary?stop=203220&routes=394,396,399)
+[https://sydney-bus-departures.herokuapp.com/v1/summary?stop=203220&routes=394,396,399&num=3](https://sydney-bus-departures.herokuapp.com/v1/summary?stop=203220&routes=394,396,399&num=3)
 
 ```
 Response
@@ -118,10 +118,14 @@ npm start
 ### Example URLS
 
 Summary (plain text):  
-[http://localhost:3000/v1/summary?stop=203220&routes=394,396,399](http://localhost:3000/v1/summary?stop=203220&routes=394,396,399)
+[http://localhost:3000/v1/summary?stop=203220&routes=394,396,399](http://localhost:3000/v1/summary?stop=203220&routes=394,396,399&num=3)
 
 Departures (JSON):  
 [http://localhost:3000/v1/departures?stop=203220](http://localhost:3000/v1/departures?stop=203220)
+
+## Testing
+
+Run `./test.sh` to run a basic curl to see the output. More sustantial tests will follow.
 
 
 ## Pebble app

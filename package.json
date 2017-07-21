@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "express": "^4.15.3",
+    "express-on-serverless": "^0.1.1",
     "moment": "^2.18.1",
     "request": "^2.81.0"
   },
