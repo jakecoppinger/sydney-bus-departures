@@ -1,0 +1,22 @@
+service: sydney-bus-departures
+
+provider:
+  name: aws
+  runtime: nodejs4.3
+
+# functions:
+#   index:
+#     handler: server-serverless.index
+#     events:
+#       http: any {proxy+}
+
+
+functions:
+  index:
+    handler: handler.index
+    events:
+      - http: ANY {proxy+}
+
+
+plugins:
+    - serverless-offline

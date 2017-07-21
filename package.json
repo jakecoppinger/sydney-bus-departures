@@ -4,7 +4,8 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "start": "node server",
+    "serverless-dev": "serverless offline start --port=3000",
+    "start": "node server-standalone",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -26,7 +27,8 @@
     "express": "^4.15.3",
     "express-on-serverless": "^0.1.1",
     "moment": "^2.18.1",
-    "request": "^2.81.0"
+    "request": "^2.81.0",
+    "serverless-offline": "^3.15.1"
   },
   "engines": {
     "node": "8.1.4"
