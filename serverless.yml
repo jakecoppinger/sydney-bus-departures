@@ -11,7 +11,8 @@ provider:
 #     handler: server-serverless.index
 #     events:
 #       http: any {proxy+}
-
+  environment:
+    TFNSW_KEY: ${env:TFNSW_KEY}
 
 functions:
   index:

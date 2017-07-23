@@ -33,4 +33,4 @@ app.get('/v1/departures', departures);
 //   console.log('sydney-bus-departures running on port ' + port);
 // });
 
-exports.index = require('express-on-serverless')(app);
+module.exports.index = require('express-on-serverless')(app);
