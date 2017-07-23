@@ -8,6 +8,7 @@
 
 // exports.handler = (event, context) => awsServerlessExpress.proxy(server, event, context);
 
+const awsServerlessExpress = require('aws-serverless-express')
 
 
 const express = require('express');
@@ -33,4 +34,7 @@ app.get('/v1/departures', departures);
 //   console.log('sydney-bus-departures running on port ' + port);
 // });
 
-module.exports.index = require('express-on-serverless')(app);
+
+const server = awsServerlessExpress.createServer(app)
+
+module.exports.index = (event, context) => awsServerlessExpress.proxy(server, event, context)

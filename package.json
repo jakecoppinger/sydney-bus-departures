@@ -24,8 +24,8 @@
     "jshint-stylish": "^2.2.1"
   },
   "dependencies": {
+    "aws-serverless-express": "^3.0.2",
     "express": "^4.15.3",
-    "express-on-serverless": "^0.1.1",
     "moment": "^2.18.1",
     "request": "^2.81.0",
     "serverless": "^1.18.0",
