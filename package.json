@@ -6,7 +6,8 @@
   "scripts": {
     "serverless-dev": "serverless offline start --port=3000",
     "start": "node server-standalone",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy-dev": "serverless deploy --stage dev --region ap-southeast-2"
   },
   "repository": {
     "type": "git",
