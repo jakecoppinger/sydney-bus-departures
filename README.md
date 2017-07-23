@@ -109,11 +109,26 @@ Install packages:
 yarn install
 ```
 
-Start server:
+### Standard server dev
 
 ```
 npm start
 ```
+
+### Serverless dev
+
+```
+npm run serverless-dev
+```
+
+# Deploy
+
+## Serverless
+
+```
+serverless deploy
+```
+
 
 ### Example URLS
 
