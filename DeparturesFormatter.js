@@ -2,7 +2,7 @@
 /*jslint node: true */
 /*jshint esversion: 6 */
 
-const moment = require("moment");
+const moment = require("moment-timezone");
 
 const DeparturesFormatter = function(data) {
     let _data = data;
@@ -16,7 +16,7 @@ const DeparturesFormatter = function(data) {
             realtime = true;
         }
         
-        const busTimestamp = moment(timestampString);
+        const busTimestamp = moment(timestampString).tz('Australia/Sydney');;
         const zeroSecondsNow = moment().set({second:0,millisecond:0});
         var duration = moment.duration(busTimestamp.diff(zeroSecondsNow));
 
@@ -77,7 +77,7 @@ const DeparturesFormatter = function(data) {
 
 
     this.departuresBoardJSON = () => {
-        const now = moment();
+        const now = moment().tz('Australia/Sydney');;
         return _data.map((bus) => {
             const number = bus.number;
             let timestampString = bus.departureTimePlanned;

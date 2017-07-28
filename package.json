@@ -27,7 +27,7 @@
   "dependencies": {
     "aws-serverless-express": "^3.0.2",
     "express": "^4.15.3",
-    "moment": "^2.18.1",
+    "moment-timezone": "^0.5.13",
     "request": "^2.81.0",
     "serverless": "^1.18.0",
     "serverless-offline": "^3.15.1",

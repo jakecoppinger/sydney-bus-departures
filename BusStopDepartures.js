@@ -3,7 +3,7 @@
 /*jshint esversion: 6 */
 
 const JSONFieldExtrator = require('./JSONFieldExtractor.js');
-const moment = require("moment");
+const moment = require("moment-timezone");
 const request = require('request');
 
 const BusStopDepartures = function(apikey) {
@@ -76,7 +76,7 @@ const BusStopDepartures = function(apikey) {
 
     // Run HTTP request for data. Runs callback when done
     this._requestResponseForStop = (stop, callback) => {
-        const m = moment();
+        const m = moment().tz('Australia/Sydney');
         const date = m.format("YYYYMMDD");
         const time = m.format("kkmm");
 
