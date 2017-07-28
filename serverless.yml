@@ -4,22 +4,17 @@ provider:
   name: aws
   runtime: nodejs6.10
   memorySize: 128
-  #stage: dev
+  stage: dev
   region: ap-southeast-2
-# functions:
-#   index:
-#     handler: server-serverless.index
-#     events:
-#       http: any {proxy+}
   environment:
     TFNSW_KEY: ${env:TFNSW_KEY}
 
 functions:
-  index:
-    handler: handler.index
+  departures:
+    handler: lambda.handler
     events:
       - http: ANY {proxy+}
 
-
 plugins:
     - serverless-offline
+    - serverless-plugin-include-dependencies
