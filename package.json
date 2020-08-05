@@ -6,6 +6,7 @@
   "scripts": {
     "serverless-dev": "serverless offline start --port=3000",
     "dev": "node main.js",
+    "server": "node server.js",
     "deploy": "serverless deploy",
     "logs": "serverless logs --function departures"
   },
@@ -29,7 +30,7 @@
     "express": "^4.15.3",
     "moment-timezone": "^0.5.13",
     "request": "^2.81.0",
-    "serverless": "^1.18.0",
+    "serverless": "^1.78.1",
     "serverless-offline": "^3.15.1",
     "serverless-plugin-include-dependencies": "^2.1.2"
   },
