@@ -28,6 +28,7 @@
     "jshint-stylish": "^2.2.1"
   },
   "dependencies": {
+    "@types/aws-serverless-express": "^3.3.3",
     "@types/express": "^4.17.7",
     "@types/moment-timezone": "^0.5.13",
     "aws-serverless-express": "^3.0.2",

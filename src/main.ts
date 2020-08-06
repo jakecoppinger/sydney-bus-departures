@@ -1,9 +1,5 @@
-'use strict';
-/*jslint node: true */
-/*jshint esversion: 6 */
-
-const fs = require('fs');
-const BusStopDepartures = require('./BusStopDepartures.js');
+import fs from 'fs';
+import {BusStopDepartures} from './BusStopDepartures';
 const DeparturesFormatter = require('./DeparturesFormatter.js');
 
 const apikey = process.env.TFNSW_KEY;
@@ -34,7 +30,7 @@ const setupStop = (stop, useCache, callback) => {
 };
 
 let main = () => {
-    let stop = new BusStopDepartures(apikey);
+    let stop = new (BusStopDepartures as any)(apikey);
     const stopID = "203255"; //"203220";
     const useCache = false;
 

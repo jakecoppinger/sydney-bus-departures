@@ -442,12 +442,12 @@
         "affectsGlobalScope": false
       },
       "./src/functions/hello.ts": {
-        "version": "191254bc5f5df53e053a70cbeb694836e4591aec60b13b33f8b7e4cf5d17ff9d",
+        "version": "15dbae64b4de7ee407930f652a11c94157995777958bb5bbfb5d8b72e12b2183",
         "signature": "a221157b292393fbf787a95351a6e58fad7e748c8e4a41514db47ee504619623",
         "affectsGlobalScope": false
       },
       "./src/jsonfieldextractor.ts": {
-        "version": "53c5a786f104e1a18343cbab9fe6444514f534c90c31cb74643d418ab511c1ac",
+        "version": "3121bf48dce2a928185e871511f6b2e15ead0a6f4f17e215c9b4ba1d93ab2dca",
         "signature": "6d3d805deb6fd7c27131813b34189d2ee5a01d5f140600f6c25a1fee8fd940e1",
         "affectsGlobalScope": false
       },
@@ -487,22 +487,22 @@
         "affectsGlobalScope": false
       },
       "./src/busstopdepartures.ts": {
-        "version": "1d9861ea8001bbd88948d0ca0a2ebed9d939c780b75d9193ddbbc2b8cf157bcf",
-        "signature": "64b752cbf6e7f14f91453635fa648e33a7f150e005015e0affcd8daa4f3965c8",
+        "version": "eb536ac680eb0329852a5f449615a6869cbf92453b8f200a7f48c0cbe589f673",
+        "signature": "c09fcf2e539effc9cfc26c899745daf3796bc3067560ba533a835cbc49e6bf74",
         "affectsGlobalScope": false
       },
       "./src/departuresformatter.ts": {
-        "version": "e0038450b24da42ed88d42c7e2a722ade5e551c0f55eec96f78ab29300eda7f9",
-        "signature": "f50eea47e31b3c9bb329acd1f029727d9197e6a59e350d452fedf7d8eed02a8d",
+        "version": "773a8b53a027824c02cac8d1b33ce59da43c148216a87ff9b4e4cea818e29328",
+        "signature": "603b0e32dc60fea7f9e4b5f0cf8c9144cf2bb905f1f8cadeafbcd44ccedbdc31",
         "affectsGlobalScope": false
       },
       "./src/functions/summary.ts": {
-        "version": "175b8084daad35bd8e6c10a92319cb0331b1cb044dbe92edc2fc669cc62bcbbd",
+        "version": "ac6b1cfdadb2e4e8239d8dd165cebc8ba505347eac3856a9aaace1d873c989f8",
         "signature": "4da608a7e3ac3ee5fdce8e1d5c45f192034e4377186e75d783e677b3ce098118",
         "affectsGlobalScope": false
       },
       "./src/functions/departures.ts": {
-        "version": "7a199970da016ba59f05fa61f37438d23a0a5e0a324593e551266e4930a4116a",
+        "version": "31b128e3243fc02604de2f693896b92b110b614feabe168ce3374be6d94f9b4a",
         "signature": "fc5fb6eb6b9e5f030f6d71e12906faa4710e2f4f0d61d0d91bfc8fa02cdd5399",
         "affectsGlobalScope": false
       },
@@ -512,12 +512,162 @@
         "affectsGlobalScope": false
       },
       "./src/server.ts": {
-        "version": "e4efb2ccfe3a1b4e054ccdd2e9600253692034c79625c5a3285df7a4311d275d",
+        "version": "e41abc1f66afbe2cea8bfda95c3725f20fa8c2fe1176b8e6667c735c122b3f00",
         "signature": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
         "affectsGlobalScope": false
       },
+      "./node_modules/@types/aws-lambda/handler.d.ts": {
+        "version": "6d366f0f11c05a273060e686ea770c869e9d7b9aa2ba8a40b8bce3de82bd183f",
+        "signature": "6d366f0f11c05a273060e686ea770c869e9d7b9aa2ba8a40b8bce3de82bd183f",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@types/aws-lambda/common/api-gateway.d.ts": {
+        "version": "145bdd6eb032a800b625f8a03ed454e86ec82e9043ebc5daa443181f8a0a19c5",
+        "signature": "145bdd6eb032a800b625f8a03ed454e86ec82e9043ebc5daa443181f8a0a19c5",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@types/aws-lambda/common/cloudfront.d.ts": {
+        "version": "2c797c3cd77017ea810b8f324ffa354af0d5d4f4693eed3740ebd144ec66c5d0",
+        "signature": "2c797c3cd77017ea810b8f324ffa354af0d5d4f4693eed3740ebd144ec66c5d0",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@types/aws-lambda/trigger/alb.d.ts": {
+        "version": "655364d100ec5e5cedd986a79a7444265aeb33800686a14a9dc3dc50a498594e",
+        "signature": "655364d100ec5e5cedd986a79a7444265aeb33800686a14a9dc3dc50a498594e",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@types/aws-lambda/trigger/api-gateway-authorizer.d.ts": {
+        "version": "ea16a4e88983afc6072b8fce6b05cf2bcc12ea2e7276114ab7db195ba9c4a59f",
+        "signature": "ea16a4e88983afc6072b8fce6b05cf2bcc12ea2e7276114ab7db195ba9c4a59f",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@types/aws-lambda/trigger/api-gateway-proxy.d.ts": {
+        "version": "10e46cbc0c2da3911fe60e102c71c22dae641f850ccb5cf169221f08023b9980",
+        "signature": "10e46cbc0c2da3911fe60e102c71c22dae641f850ccb5cf169221f08023b9980",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@types/aws-lambda/trigger/cloudformation-custom-resource.d.ts": {
+        "version": "a88df8c14fe431e22abe399ea2acfacf1c552c1fa16cc7e2b66d81180f3001ea",
+        "signature": "a88df8c14fe431e22abe399ea2acfacf1c552c1fa16cc7e2b66d81180f3001ea",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@types/aws-lambda/trigger/cloudfront-request.d.ts": {
+        "version": "d12b75f884942952f25c2e9d27d4ac149e518286167c78a292deb89b59f65b22",
+        "signature": "d12b75f884942952f25c2e9d27d4ac149e518286167c78a292deb89b59f65b22",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@types/aws-lambda/trigger/cloudfront-response.d.ts": {
+        "version": "0dad26ffdf5cae28cb67ac9c0ce06c7ec732001b01046f47eeaa4ee5a3655f5d",
+        "signature": "0dad26ffdf5cae28cb67ac9c0ce06c7ec732001b01046f47eeaa4ee5a3655f5d",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@types/aws-lambda/trigger/eventbridge.d.ts": {
+        "version": "a3083d0ef2ab7bd00f400ce61035ab38f211cd848ebca9164d7410afeed9fad7",
+        "signature": "a3083d0ef2ab7bd00f400ce61035ab38f211cd848ebca9164d7410afeed9fad7",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@types/aws-lambda/trigger/cloudwatch-events.d.ts": {
+        "version": "4194cc6e823aa830a71c733b18d0de1c29323b102c6460e9fe835ac5f8b8a9ba",
+        "signature": "4194cc6e823aa830a71c733b18d0de1c29323b102c6460e9fe835ac5f8b8a9ba",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@types/aws-lambda/trigger/cloudwatch-logs.d.ts": {
+        "version": "6535220a215ec3368ee6b02b0814feadc0f0fbbb9def8d42854707962187a2ac",
+        "signature": "6535220a215ec3368ee6b02b0814feadc0f0fbbb9def8d42854707962187a2ac",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@types/aws-lambda/trigger/codebuild-cloudwatch-state.d.ts": {
+        "version": "df0e79fd71b86b3f4a612c862238c1169e3eb8fceaef68ef090e04b66b04445c",
+        "signature": "df0e79fd71b86b3f4a612c862238c1169e3eb8fceaef68ef090e04b66b04445c",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@types/aws-lambda/trigger/codepipeline.d.ts": {
+        "version": "126cdd1c40798a3101234f838fe0be59dec0c01b97d43b113c766a31918ef9b0",
+        "signature": "126cdd1c40798a3101234f838fe0be59dec0c01b97d43b113c766a31918ef9b0",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@types/aws-lambda/trigger/codepipeline-cloudwatch-action.d.ts": {
+        "version": "f4922a1814e47fdb4d93c2cf27968ea30c174e04d4a3374774046a9307dbbaf0",
+        "signature": "f4922a1814e47fdb4d93c2cf27968ea30c174e04d4a3374774046a9307dbbaf0",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@types/aws-lambda/trigger/codepipeline-cloudwatch-pipeline.d.ts": {
+        "version": "bfff1bb349423cc262a88775d8233f7ea2b87d66ba1f0631eec0c30bea097dd5",
+        "signature": "bfff1bb349423cc262a88775d8233f7ea2b87d66ba1f0631eec0c30bea097dd5",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@types/aws-lambda/trigger/codepipeline-cloudwatch-stage.d.ts": {
+        "version": "a177f76c040e29b9c31adfc93225c273828ff784b592bf56c6131771e624f628",
+        "signature": "a177f76c040e29b9c31adfc93225c273828ff784b592bf56c6131771e624f628",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@types/aws-lambda/trigger/codepipeline-cloudwatch.d.ts": {
+        "version": "06236dfec90a14b0c3db8249831069ea3f90b004d73d496a559a4466e5a344a4",
+        "signature": "06236dfec90a14b0c3db8249831069ea3f90b004d73d496a559a4466e5a344a4",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@types/aws-lambda/trigger/cognito-user-pool-trigger.d.ts": {
+        "version": "802ae7b75ee3ac42702ca9dacd15886560a401ff83c34029766ed179ea1ad3f7",
+        "signature": "802ae7b75ee3ac42702ca9dacd15886560a401ff83c34029766ed179ea1ad3f7",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@types/aws-lambda/trigger/connect-contact-flow.d.ts": {
+        "version": "fcfc2938d1472c2f0757ee7963523e054e99fd7eec41d7e920c9aa86c6efb140",
+        "signature": "fcfc2938d1472c2f0757ee7963523e054e99fd7eec41d7e920c9aa86c6efb140",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@types/aws-lambda/trigger/dynamodb-stream.d.ts": {
+        "version": "de92ccb3b28e3c059cba235188d687743270d5a82b5b521e914e45be4dccf169",
+        "signature": "de92ccb3b28e3c059cba235188d687743270d5a82b5b521e914e45be4dccf169",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@types/aws-lambda/trigger/kinesis-firehose-transformation.d.ts": {
+        "version": "0cae9cd75264a10fab3a1beb5c78070fdfa964117064f2d8d95818b4391cd465",
+        "signature": "0cae9cd75264a10fab3a1beb5c78070fdfa964117064f2d8d95818b4391cd465",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@types/aws-lambda/trigger/kinesis-stream.d.ts": {
+        "version": "ea7abdaf48601d8d84e0962f628f61d3738637ff26f2362c90f514a337bc8305",
+        "signature": "ea7abdaf48601d8d84e0962f628f61d3738637ff26f2362c90f514a337bc8305",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@types/aws-lambda/trigger/lex.d.ts": {
+        "version": "700c4c385164ec865be9473e65b6fb89b79065e630e06c42c8452407a64b9b8a",
+        "signature": "700c4c385164ec865be9473e65b6fb89b79065e630e06c42c8452407a64b9b8a",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@types/aws-lambda/trigger/s3.d.ts": {
+        "version": "cf4eaba5fbc5d8a451480bd6b5e1439edfc3fbc0a7be8fca33d1d6078514b2ee",
+        "signature": "cf4eaba5fbc5d8a451480bd6b5e1439edfc3fbc0a7be8fca33d1d6078514b2ee",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@types/aws-lambda/trigger/s3-batch.d.ts": {
+        "version": "47ffa0bd85219fa1551c7cb128e3e1b44f980c9eb5baee26b0164db191ab917b",
+        "signature": "47ffa0bd85219fa1551c7cb128e3e1b44f980c9eb5baee26b0164db191ab917b",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@types/aws-lambda/trigger/sns.d.ts": {
+        "version": "33db1b492d92effbcc562388b6d448e28e8304d6a926f513dd760a6bc4cba2b3",
+        "signature": "33db1b492d92effbcc562388b6d448e28e8304d6a926f513dd760a6bc4cba2b3",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@types/aws-lambda/trigger/sqs.d.ts": {
+        "version": "19d2c0675d0155ab788680d044aa95747032001714ba1b9e7d29bdb0a047a5d6",
+        "signature": "19d2c0675d0155ab788680d044aa95747032001714ba1b9e7d29bdb0a047a5d6",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@types/aws-lambda/index.d.ts": {
+        "version": "163ea56f8e434300ae95f4de1d7c2609d343cf0d7c7b690f3cbdd8ad9f3af429",
+        "signature": "163ea56f8e434300ae95f4de1d7c2609d343cf0d7c7b690f3cbdd8ad9f3af429",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@types/aws-serverless-express/index.d.ts": {
+        "version": "02323ea30335514a016ffb7ee255d646858533478f893462bd1aa172834a7ce3",
+        "signature": "02323ea30335514a016ffb7ee255d646858533478f893462bd1aa172834a7ce3",
+        "affectsGlobalScope": false
+      },
       "./src/lambda.ts": {
-        "version": "0e164adc4e1190054d4ec809ecfc77bc182bbc19e19c92b7951b1dfe32a31da9",
+        "version": "3f82ebd6c91e97c2afa2d536e19a5ad87153cc2b222b45e0fb3702af76b8c2fe",
         "signature": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
         "affectsGlobalScope": false
       },
@@ -630,7 +780,7 @@
         "lib.es2015.d.ts"
       ],
       "target": 1,
-      "noImplicitAny": false,
+      "noImplicitAny": true,
       "pretty": true,
       "sourceRoot": "./src/",
       "rootDir": "./src",
@@ -640,6 +790,309 @@
       "configFilePath": "./tsconfig.json"
     },
     "referencedMap": {
+      "./node_modules/@types/aws-lambda/common/api-gateway.d.ts": [
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/process.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/process.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts"
+      ],
+      "./node_modules/@types/aws-lambda/common/cloudfront.d.ts": [
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/process.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/process.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts"
+      ],
+      "./node_modules/@types/aws-lambda/handler.d.ts": [
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/process.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/process.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts"
+      ],
+      "./node_modules/@types/aws-lambda/index.d.ts": [
+        "./node_modules/@types/aws-lambda/common/api-gateway.d.ts",
+        "./node_modules/@types/aws-lambda/common/cloudfront.d.ts",
+        "./node_modules/@types/aws-lambda/handler.d.ts",
+        "./node_modules/@types/aws-lambda/trigger/alb.d.ts",
+        "./node_modules/@types/aws-lambda/trigger/api-gateway-authorizer.d.ts",
+        "./node_modules/@types/aws-lambda/trigger/api-gateway-proxy.d.ts",
+        "./node_modules/@types/aws-lambda/trigger/cloudformation-custom-resource.d.ts",
+        "./node_modules/@types/aws-lambda/trigger/cloudfront-request.d.ts",
+        "./node_modules/@types/aws-lambda/trigger/cloudfront-response.d.ts",
+        "./node_modules/@types/aws-lambda/trigger/cloudwatch-events.d.ts",
+        "./node_modules/@types/aws-lambda/trigger/cloudwatch-logs.d.ts",
+        "./node_modules/@types/aws-lambda/trigger/codebuild-cloudwatch-state.d.ts",
+        "./node_modules/@types/aws-lambda/trigger/codepipeline-cloudwatch-action.d.ts",
+        "./node_modules/@types/aws-lambda/trigger/codepipeline-cloudwatch-pipeline.d.ts",
+        "./node_modules/@types/aws-lambda/trigger/codepipeline-cloudwatch-stage.d.ts",
+        "./node_modules/@types/aws-lambda/trigger/codepipeline-cloudwatch.d.ts",
+        "./node_modules/@types/aws-lambda/trigger/codepipeline.d.ts",
+        "./node_modules/@types/aws-lambda/trigger/cognito-user-pool-trigger.d.ts",
+        "./node_modules/@types/aws-lambda/trigger/connect-contact-flow.d.ts",
+        "./node_modules/@types/aws-lambda/trigger/dynamodb-stream.d.ts",
+        "./node_modules/@types/aws-lambda/trigger/eventbridge.d.ts",
+        "./node_modules/@types/aws-lambda/trigger/kinesis-firehose-transformation.d.ts",
+        "./node_modules/@types/aws-lambda/trigger/kinesis-stream.d.ts",
+        "./node_modules/@types/aws-lambda/trigger/lex.d.ts",
+        "./node_modules/@types/aws-lambda/trigger/s3-batch.d.ts",
+        "./node_modules/@types/aws-lambda/trigger/s3.d.ts",
+        "./node_modules/@types/aws-lambda/trigger/sns.d.ts",
+        "./node_modules/@types/aws-lambda/trigger/sqs.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/process.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/process.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts"
+      ],
+      "./node_modules/@types/aws-lambda/trigger/alb.d.ts": [
+        "./node_modules/@types/aws-lambda/handler.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/process.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/process.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts"
+      ],
+      "./node_modules/@types/aws-lambda/trigger/api-gateway-authorizer.d.ts": [
+        "./node_modules/@types/aws-lambda/common/api-gateway.d.ts",
+        "./node_modules/@types/aws-lambda/handler.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/process.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/process.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts"
+      ],
+      "./node_modules/@types/aws-lambda/trigger/api-gateway-proxy.d.ts": [
+        "./node_modules/@types/aws-lambda/common/api-gateway.d.ts",
+        "./node_modules/@types/aws-lambda/handler.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/process.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/process.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts"
+      ],
+      "./node_modules/@types/aws-lambda/trigger/cloudformation-custom-resource.d.ts": [
+        "./node_modules/@types/aws-lambda/handler.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/process.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/process.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts"
+      ],
+      "./node_modules/@types/aws-lambda/trigger/cloudfront-request.d.ts": [
+        "./node_modules/@types/aws-lambda/common/cloudfront.d.ts",
+        "./node_modules/@types/aws-lambda/handler.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/process.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/process.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts"
+      ],
+      "./node_modules/@types/aws-lambda/trigger/cloudfront-response.d.ts": [
+        "./node_modules/@types/aws-lambda/common/cloudfront.d.ts",
+        "./node_modules/@types/aws-lambda/handler.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/process.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/process.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts"
+      ],
+      "./node_modules/@types/aws-lambda/trigger/cloudwatch-events.d.ts": [
+        "./node_modules/@types/aws-lambda/trigger/eventbridge.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/process.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/process.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts"
+      ],
+      "./node_modules/@types/aws-lambda/trigger/cloudwatch-logs.d.ts": [
+        "./node_modules/@types/aws-lambda/handler.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/process.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/process.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts"
+      ],
+      "./node_modules/@types/aws-lambda/trigger/codebuild-cloudwatch-state.d.ts": [
+        "./node_modules/@types/aws-lambda/trigger/eventbridge.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/process.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/process.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts"
+      ],
+      "./node_modules/@types/aws-lambda/trigger/codepipeline-cloudwatch-action.d.ts": [
+        "./node_modules/@types/aws-lambda/handler.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/process.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/process.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts"
+      ],
+      "./node_modules/@types/aws-lambda/trigger/codepipeline-cloudwatch-pipeline.d.ts": [
+        "./node_modules/@types/aws-lambda/handler.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/process.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/process.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts"
+      ],
+      "./node_modules/@types/aws-lambda/trigger/codepipeline-cloudwatch-stage.d.ts": [
+        "./node_modules/@types/aws-lambda/handler.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/process.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/process.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts"
+      ],
+      "./node_modules/@types/aws-lambda/trigger/codepipeline-cloudwatch.d.ts": [
+        "./node_modules/@types/aws-lambda/handler.d.ts",
+        "./node_modules/@types/aws-lambda/trigger/codepipeline-cloudwatch-action.d.ts",
+        "./node_modules/@types/aws-lambda/trigger/codepipeline-cloudwatch-pipeline.d.ts",
+        "./node_modules/@types/aws-lambda/trigger/codepipeline-cloudwatch-stage.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/process.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/process.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts"
+      ],
+      "./node_modules/@types/aws-lambda/trigger/codepipeline.d.ts": [
+        "./node_modules/@types/aws-lambda/handler.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/process.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/process.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts"
+      ],
+      "./node_modules/@types/aws-lambda/trigger/cognito-user-pool-trigger.d.ts": [
+        "./node_modules/@types/aws-lambda/handler.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/process.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/process.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts"
+      ],
+      "./node_modules/@types/aws-lambda/trigger/connect-contact-flow.d.ts": [
+        "./node_modules/@types/aws-lambda/handler.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/process.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/process.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts"
+      ],
+      "./node_modules/@types/aws-lambda/trigger/dynamodb-stream.d.ts": [
+        "./node_modules/@types/aws-lambda/handler.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/process.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/process.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts"
+      ],
+      "./node_modules/@types/aws-lambda/trigger/eventbridge.d.ts": [
+        "./node_modules/@types/aws-lambda/handler.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/process.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/process.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts"
+      ],
+      "./node_modules/@types/aws-lambda/trigger/kinesis-firehose-transformation.d.ts": [
+        "./node_modules/@types/aws-lambda/handler.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/process.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/process.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts"
+      ],
+      "./node_modules/@types/aws-lambda/trigger/kinesis-stream.d.ts": [
+        "./node_modules/@types/aws-lambda/handler.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/process.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/process.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts"
+      ],
+      "./node_modules/@types/aws-lambda/trigger/lex.d.ts": [
+        "./node_modules/@types/aws-lambda/handler.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/process.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/process.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts"
+      ],
+      "./node_modules/@types/aws-lambda/trigger/s3-batch.d.ts": [
+        "./node_modules/@types/aws-lambda/handler.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/process.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/process.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts"
+      ],
+      "./node_modules/@types/aws-lambda/trigger/s3.d.ts": [
+        "./node_modules/@types/aws-lambda/handler.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/process.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/process.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts"
+      ],
+      "./node_modules/@types/aws-lambda/trigger/sns.d.ts": [
+        "./node_modules/@types/aws-lambda/handler.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/process.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/process.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts"
+      ],
+      "./node_modules/@types/aws-lambda/trigger/sqs.d.ts": [
+        "./node_modules/@types/aws-lambda/handler.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/process.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/process.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts"
+      ],
+      "./node_modules/@types/aws-serverless-express/index.d.ts": [
+        "./node_modules/@types/aws-lambda/index.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/http.d.ts",
+        "./node_modules/@types/node/process.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/process.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/ts3.7/index.d.ts",
+        "./node_modules/@types/node/util.d.ts"
+      ],
       "./node_modules/@types/body-parser/index.d.ts": [
         "./node_modules/@types/connect/index.d.ts",
         "./node_modules/@types/node/fs.d.ts",
@@ -1914,6 +2367,7 @@
         "./node_modules/@types/node/util.d.ts"
       ],
       "./src/lambda.ts": [
+        "./node_modules/@types/aws-serverless-express/index.d.ts",
         "./node_modules/@types/node/fs.d.ts",
         "./node_modules/@types/node/process.d.ts",
         "./node_modules/@types/node/ts3.2/fs.d.ts",
@@ -1933,6 +2387,309 @@
       ]
     },
     "exportedModulesMap": {
+      "./node_modules/@types/aws-lambda/common/api-gateway.d.ts": [
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/process.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/process.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts"
+      ],
+      "./node_modules/@types/aws-lambda/common/cloudfront.d.ts": [
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/process.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/process.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts"
+      ],
+      "./node_modules/@types/aws-lambda/handler.d.ts": [
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/process.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/process.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts"
+      ],
+      "./node_modules/@types/aws-lambda/index.d.ts": [
+        "./node_modules/@types/aws-lambda/common/api-gateway.d.ts",
+        "./node_modules/@types/aws-lambda/common/cloudfront.d.ts",
+        "./node_modules/@types/aws-lambda/handler.d.ts",
+        "./node_modules/@types/aws-lambda/trigger/alb.d.ts",
+        "./node_modules/@types/aws-lambda/trigger/api-gateway-authorizer.d.ts",
+        "./node_modules/@types/aws-lambda/trigger/api-gateway-proxy.d.ts",
+        "./node_modules/@types/aws-lambda/trigger/cloudformation-custom-resource.d.ts",
+        "./node_modules/@types/aws-lambda/trigger/cloudfront-request.d.ts",
+        "./node_modules/@types/aws-lambda/trigger/cloudfront-response.d.ts",
+        "./node_modules/@types/aws-lambda/trigger/cloudwatch-events.d.ts",
+        "./node_modules/@types/aws-lambda/trigger/cloudwatch-logs.d.ts",
+        "./node_modules/@types/aws-lambda/trigger/codebuild-cloudwatch-state.d.ts",
+        "./node_modules/@types/aws-lambda/trigger/codepipeline-cloudwatch-action.d.ts",
+        "./node_modules/@types/aws-lambda/trigger/codepipeline-cloudwatch-pipeline.d.ts",
+        "./node_modules/@types/aws-lambda/trigger/codepipeline-cloudwatch-stage.d.ts",
+        "./node_modules/@types/aws-lambda/trigger/codepipeline-cloudwatch.d.ts",
+        "./node_modules/@types/aws-lambda/trigger/codepipeline.d.ts",
+        "./node_modules/@types/aws-lambda/trigger/cognito-user-pool-trigger.d.ts",
+        "./node_modules/@types/aws-lambda/trigger/connect-contact-flow.d.ts",
+        "./node_modules/@types/aws-lambda/trigger/dynamodb-stream.d.ts",
+        "./node_modules/@types/aws-lambda/trigger/eventbridge.d.ts",
+        "./node_modules/@types/aws-lambda/trigger/kinesis-firehose-transformation.d.ts",
+        "./node_modules/@types/aws-lambda/trigger/kinesis-stream.d.ts",
+        "./node_modules/@types/aws-lambda/trigger/lex.d.ts",
+        "./node_modules/@types/aws-lambda/trigger/s3-batch.d.ts",
+        "./node_modules/@types/aws-lambda/trigger/s3.d.ts",
+        "./node_modules/@types/aws-lambda/trigger/sns.d.ts",
+        "./node_modules/@types/aws-lambda/trigger/sqs.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/process.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/process.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts"
+      ],
+      "./node_modules/@types/aws-lambda/trigger/alb.d.ts": [
+        "./node_modules/@types/aws-lambda/handler.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/process.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/process.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts"
+      ],
+      "./node_modules/@types/aws-lambda/trigger/api-gateway-authorizer.d.ts": [
+        "./node_modules/@types/aws-lambda/common/api-gateway.d.ts",
+        "./node_modules/@types/aws-lambda/handler.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/process.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/process.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts"
+      ],
+      "./node_modules/@types/aws-lambda/trigger/api-gateway-proxy.d.ts": [
+        "./node_modules/@types/aws-lambda/common/api-gateway.d.ts",
+        "./node_modules/@types/aws-lambda/handler.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/process.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/process.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts"
+      ],
+      "./node_modules/@types/aws-lambda/trigger/cloudformation-custom-resource.d.ts": [
+        "./node_modules/@types/aws-lambda/handler.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/process.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/process.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts"
+      ],
+      "./node_modules/@types/aws-lambda/trigger/cloudfront-request.d.ts": [
+        "./node_modules/@types/aws-lambda/common/cloudfront.d.ts",
+        "./node_modules/@types/aws-lambda/handler.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/process.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/process.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts"
+      ],
+      "./node_modules/@types/aws-lambda/trigger/cloudfront-response.d.ts": [
+        "./node_modules/@types/aws-lambda/common/cloudfront.d.ts",
+        "./node_modules/@types/aws-lambda/handler.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/process.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/process.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts"
+      ],
+      "./node_modules/@types/aws-lambda/trigger/cloudwatch-events.d.ts": [
+        "./node_modules/@types/aws-lambda/trigger/eventbridge.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/process.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/process.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts"
+      ],
+      "./node_modules/@types/aws-lambda/trigger/cloudwatch-logs.d.ts": [
+        "./node_modules/@types/aws-lambda/handler.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/process.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/process.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts"
+      ],
+      "./node_modules/@types/aws-lambda/trigger/codebuild-cloudwatch-state.d.ts": [
+        "./node_modules/@types/aws-lambda/trigger/eventbridge.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/process.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/process.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts"
+      ],
+      "./node_modules/@types/aws-lambda/trigger/codepipeline-cloudwatch-action.d.ts": [
+        "./node_modules/@types/aws-lambda/handler.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/process.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/process.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts"
+      ],
+      "./node_modules/@types/aws-lambda/trigger/codepipeline-cloudwatch-pipeline.d.ts": [
+        "./node_modules/@types/aws-lambda/handler.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/process.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/process.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts"
+      ],
+      "./node_modules/@types/aws-lambda/trigger/codepipeline-cloudwatch-stage.d.ts": [
+        "./node_modules/@types/aws-lambda/handler.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/process.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/process.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts"
+      ],
+      "./node_modules/@types/aws-lambda/trigger/codepipeline-cloudwatch.d.ts": [
+        "./node_modules/@types/aws-lambda/handler.d.ts",
+        "./node_modules/@types/aws-lambda/trigger/codepipeline-cloudwatch-action.d.ts",
+        "./node_modules/@types/aws-lambda/trigger/codepipeline-cloudwatch-pipeline.d.ts",
+        "./node_modules/@types/aws-lambda/trigger/codepipeline-cloudwatch-stage.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/process.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/process.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts"
+      ],
+      "./node_modules/@types/aws-lambda/trigger/codepipeline.d.ts": [
+        "./node_modules/@types/aws-lambda/handler.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/process.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/process.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts"
+      ],
+      "./node_modules/@types/aws-lambda/trigger/cognito-user-pool-trigger.d.ts": [
+        "./node_modules/@types/aws-lambda/handler.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/process.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/process.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts"
+      ],
+      "./node_modules/@types/aws-lambda/trigger/connect-contact-flow.d.ts": [
+        "./node_modules/@types/aws-lambda/handler.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/process.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/process.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts"
+      ],
+      "./node_modules/@types/aws-lambda/trigger/dynamodb-stream.d.ts": [
+        "./node_modules/@types/aws-lambda/handler.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/process.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/process.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts"
+      ],
+      "./node_modules/@types/aws-lambda/trigger/eventbridge.d.ts": [
+        "./node_modules/@types/aws-lambda/handler.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/process.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/process.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts"
+      ],
+      "./node_modules/@types/aws-lambda/trigger/kinesis-firehose-transformation.d.ts": [
+        "./node_modules/@types/aws-lambda/handler.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/process.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/process.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts"
+      ],
+      "./node_modules/@types/aws-lambda/trigger/kinesis-stream.d.ts": [
+        "./node_modules/@types/aws-lambda/handler.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/process.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/process.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts"
+      ],
+      "./node_modules/@types/aws-lambda/trigger/lex.d.ts": [
+        "./node_modules/@types/aws-lambda/handler.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/process.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/process.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts"
+      ],
+      "./node_modules/@types/aws-lambda/trigger/s3-batch.d.ts": [
+        "./node_modules/@types/aws-lambda/handler.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/process.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/process.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts"
+      ],
+      "./node_modules/@types/aws-lambda/trigger/s3.d.ts": [
+        "./node_modules/@types/aws-lambda/handler.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/process.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/process.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts"
+      ],
+      "./node_modules/@types/aws-lambda/trigger/sns.d.ts": [
+        "./node_modules/@types/aws-lambda/handler.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/process.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/process.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts"
+      ],
+      "./node_modules/@types/aws-lambda/trigger/sqs.d.ts": [
+        "./node_modules/@types/aws-lambda/handler.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/process.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/process.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts"
+      ],
+      "./node_modules/@types/aws-serverless-express/index.d.ts": [
+        "./node_modules/@types/aws-lambda/index.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/http.d.ts",
+        "./node_modules/@types/node/process.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/process.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/ts3.7/index.d.ts",
+        "./node_modules/@types/node/util.d.ts"
+      ],
       "./node_modules/@types/body-parser/index.d.ts": [
         "./node_modules/@types/connect/index.d.ts",
         "./node_modules/@types/node/fs.d.ts",
@@ -3144,6 +3901,36 @@
       ]
     },
     "semanticDiagnosticsPerFile": [
+      "./node_modules/@types/aws-lambda/common/api-gateway.d.ts",
+      "./node_modules/@types/aws-lambda/common/cloudfront.d.ts",
+      "./node_modules/@types/aws-lambda/handler.d.ts",
+      "./node_modules/@types/aws-lambda/index.d.ts",
+      "./node_modules/@types/aws-lambda/trigger/alb.d.ts",
+      "./node_modules/@types/aws-lambda/trigger/api-gateway-authorizer.d.ts",
+      "./node_modules/@types/aws-lambda/trigger/api-gateway-proxy.d.ts",
+      "./node_modules/@types/aws-lambda/trigger/cloudformation-custom-resource.d.ts",
+      "./node_modules/@types/aws-lambda/trigger/cloudfront-request.d.ts",
+      "./node_modules/@types/aws-lambda/trigger/cloudfront-response.d.ts",
+      "./node_modules/@types/aws-lambda/trigger/cloudwatch-events.d.ts",
+      "./node_modules/@types/aws-lambda/trigger/cloudwatch-logs.d.ts",
+      "./node_modules/@types/aws-lambda/trigger/codebuild-cloudwatch-state.d.ts",
+      "./node_modules/@types/aws-lambda/trigger/codepipeline-cloudwatch-action.d.ts",
+      "./node_modules/@types/aws-lambda/trigger/codepipeline-cloudwatch-pipeline.d.ts",
+      "./node_modules/@types/aws-lambda/trigger/codepipeline-cloudwatch-stage.d.ts",
+      "./node_modules/@types/aws-lambda/trigger/codepipeline-cloudwatch.d.ts",
+      "./node_modules/@types/aws-lambda/trigger/codepipeline.d.ts",
+      "./node_modules/@types/aws-lambda/trigger/cognito-user-pool-trigger.d.ts",
+      "./node_modules/@types/aws-lambda/trigger/connect-contact-flow.d.ts",
+      "./node_modules/@types/aws-lambda/trigger/dynamodb-stream.d.ts",
+      "./node_modules/@types/aws-lambda/trigger/eventbridge.d.ts",
+      "./node_modules/@types/aws-lambda/trigger/kinesis-firehose-transformation.d.ts",
+      "./node_modules/@types/aws-lambda/trigger/kinesis-stream.d.ts",
+      "./node_modules/@types/aws-lambda/trigger/lex.d.ts",
+      "./node_modules/@types/aws-lambda/trigger/s3-batch.d.ts",
+      "./node_modules/@types/aws-lambda/trigger/s3.d.ts",
+      "./node_modules/@types/aws-lambda/trigger/sns.d.ts",
+      "./node_modules/@types/aws-lambda/trigger/sqs.d.ts",
+      "./node_modules/@types/aws-serverless-express/index.d.ts",
       "./node_modules/@types/body-parser/index.d.ts",
       "./node_modules/@types/caseless/index.d.ts",
       "./node_modules/@types/color-name/index.d.ts",

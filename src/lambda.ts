@@ -3,5 +3,5 @@ import app from './app';
 var server = awsServerlessExpress.createServer(app);
 
 
-module.exports.handler = (event, context) => 
+module.exports.handler = (event: any, context:any) => 
     awsServerlessExpress.proxy(server, event, context)

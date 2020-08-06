@@ -1,7 +1,7 @@
 import { BusStopDepartures } from '../BusStopDepartures';
 import { DeparturesFormatter } from '../DeparturesFormatter';
 
-export function summary(req, res) {
+export function summary(req: any, res: any) {
     let stopID = req.query.stop;
     let routes = req.query.routes.split(',');
     let num = req.query.num;

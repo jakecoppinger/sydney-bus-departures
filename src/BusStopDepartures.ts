@@ -2,13 +2,13 @@ import {JSONFieldExtractor} from './JSONFieldExtractor';
 import * as moment from "moment-timezone";
 import * as request from 'request';
 
-export const BusStopDepartures = function(apikey: string) {
+export function BusStopDepartures(apikey: string) {
     let _tfnswData: any = null;
     const _apikey = apikey;
     let _useCache = false;
-    let _lastReformattedResponse = null;
+    let _lastReformattedResponse:any = null;
 
-    const _desiredFields = {
+    const _desiredFields: any = {
         "isRealtimeControlled":null,
         "departureTimePlanned":null,
         "departureTimeEstimated":null,
@@ -24,7 +24,7 @@ export const BusStopDepartures = function(apikey: string) {
         }
     };
 
-    const _fieldsToReformat = {
+    const _fieldsToReformat:any = {
         "realtimeEnabled":"isRealtimeControlled",
         "departureTimePlanned":"departureTimePlanned",
         "departureTimeEstimated":"departureTimeEstimated",
@@ -34,12 +34,12 @@ export const BusStopDepartures = function(apikey: string) {
         "destination":["transportation", "destination", "name"]
     };
 
-    this.setCacheUse = (useCache) => {
+    this.setCacheUse = (useCache: boolean) => {
         _useCache = useCache;
     };
 
     // Set response from cache
-    this.setResponseForStop = (input) => {
+    this.setResponseForStop = (input: any) => {
         _tfnswData = input;
     };
 
@@ -53,7 +53,7 @@ export const BusStopDepartures = function(apikey: string) {
 
     // The main function for getting data from TfNSW
     // **Calls callback when data ready**
-    this.getDeparturesForStop = (stop, callback) => {
+    this.getDeparturesForStop = (stop: any, callback: any) => {
         this._getResponseForStop(stop, () => {
             _lastReformattedResponse = this._processData(_tfnswData);
             callback();
@@ -62,7 +62,7 @@ export const BusStopDepartures = function(apikey: string) {
 
     // Runs callback when response is ready
     // Either runs HTTP request or calls back immediately for cache
-    this._getResponseForStop = (stop, callback) => {
+    this._getResponseForStop = (stop: any, callback: any) => {
         if(_useCache) {
             callback();
         } else {
@@ -71,7 +71,7 @@ export const BusStopDepartures = function(apikey: string) {
     };
 
     // Run HTTP request for data. Runs callback when done
-    this._requestResponseForStop = (stop, callback) => {
+    this._requestResponseForStop = (stop: any, callback: any) => {
         const m = moment().tz('Australia/Sydney');
         const date = m.format("YYYYMMDD");
         const time = m.format("kkmm");
@@ -98,7 +98,7 @@ export const BusStopDepartures = function(apikey: string) {
             }
         };
 
-        const requestCallback = (error, response, body) => {
+        const requestCallback = (error: any, response: any, body: any) => {
             if (error) {
                 console.log(error);
                 return;
@@ -116,7 +116,7 @@ export const BusStopDepartures = function(apikey: string) {
     };
 
     // Processes the raw return body into selected data
-    this._processData = function(data) {
+    this._processData = function(data: any) {
         // Remove stopIDglobalID
         // rawBuses.forEach((bus) => {
         //     const newBus = bus;
@@ -126,13 +126,13 @@ export const BusStopDepartures = function(apikey: string) {
 
         const rawBuses = data.stopEvents;
 
-        const extractedBusFields = rawBuses.map((bus) => {
+        const extractedBusFields = rawBuses.map((bus:any) => {
             const extractor = new (JSONFieldExtractor as any)(bus);
             return extractor.extractFields(_desiredFields);
         });
 
-        const reformatBus = (bus) => {
-            const newBus = {};
+        const reformatBus = (bus: any) => {
+            const newBus: any = {};
             Object.keys(_fieldsToReformat).forEach((newField)=>{
                 const oldFields = _fieldsToReformat[newField];
                 if(Array.isArray(oldFields)) {
@@ -149,12 +149,12 @@ export const BusStopDepartures = function(apikey: string) {
         };
 
         return extractedBusFields.map(
-            oldBus => reformatBus(oldBus)
+            (oldBus: any) => reformatBus(oldBus)
         );
     };
 
     this.compactData = function () {
-        _lastReformattedResponse.forEach((bus) => {
+        _lastReformattedResponse.forEach((bus: any) => {
             let output = "";
 
             output += bus.number;

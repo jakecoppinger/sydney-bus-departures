@@ -1,7 +1,7 @@
-export const JSONFieldExtractor = function(data) {
+export const JSONFieldExtractor = function(data: any) {
     const _data = data;
 
-    this.extractFields = (desiredFields) => {
+    this.extractFields = (desiredFields: any) => {
         return _internalExtractFields(desiredFields, _data);
     };
 
@@ -9,8 +9,8 @@ export const JSONFieldExtractor = function(data) {
         return _data;
     };
 
-    function _internalExtractFields(desiredFields, input) {
-        const output = {};
+    function _internalExtractFields(desiredFields: any, input: any) {
+        const output:any = {};
 
         for(const key in desiredFields) {
             const value = desiredFields[key];
@@ -23,7 +23,7 @@ export const JSONFieldExtractor = function(data) {
         return output;
     }
 
-    function hasSubObject(o) {
+    function hasSubObject(o: any) {
         for(var key in o) {
             if(o.hasOwnProperty(key)) {
                 const value = o[key];
@@ -39,7 +39,7 @@ export const JSONFieldExtractor = function(data) {
         return _keyTreeStringRecursive(_data,0);
     };
 
-    function _keyTreeStringRecursive(input, indent) {
+    function _keyTreeStringRecursive(input: any, indent: any) {
         let output = "";
         const indentStr = "    ";
         for(const key in input) {
