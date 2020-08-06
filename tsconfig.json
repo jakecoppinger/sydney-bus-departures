@@ -17,8 +17,5 @@
         "src/app.ts",
         "src/server.ts",
         "src/lambda.ts",
-        // "src/populate-marey-db.ts"
-        // "src/test.ts"
-        // "recording/src/train-datalogger.ts"
     ]
 }

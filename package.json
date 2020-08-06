@@ -10,8 +10,7 @@
     "deploy": "serverless deploy",
     "logs": "serverless logs --function departures",
     "build": "./node_modules/typescript/bin/tsc",
-    "test": "ts-mocha test/**/*.ts",
-    "start-aws-uploader": "node -r source-map-support/register dist/aws-uploader.js"
+    "test": "ts-mocha test/**/*.ts"
   },
   "repository": {
     "type": "git",
