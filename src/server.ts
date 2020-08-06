@@ -1,9 +1,4 @@
-'use strict';
-/*jslint node: true */
-/*jshint esversion: 6 */
-
-
-const app = require('./app');
+import app from './app';
 
 var port = process.env.PORT || 3000;
 

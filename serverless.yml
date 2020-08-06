@@ -11,9 +11,13 @@ provider:
 
 functions:
   departures:
-    handler: lambda.handler
+    handler: dist/lambda.handler
     events:
       - http: ANY {proxy+}
+
+package: # Optional deployment packaging configuration
+  include: # Specify the directories and files which should be included in the deployment package
+    - dist/**
 
 plugins:
     - serverless-offline

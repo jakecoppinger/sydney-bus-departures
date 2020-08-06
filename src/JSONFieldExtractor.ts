@@ -1,8 +1,4 @@
-'use strict';
-/*jslint node: true */
-/*jshint esversion: 6 */
-
-const JSONFieldExtractor = function(data) {
+export const JSONFieldExtractor = function(data) {
     const _data = data;
 
     this.extractFields = (desiredFields) => {
@@ -61,5 +57,3 @@ const JSONFieldExtractor = function(data) {
 
     return this;
 };
-
-module.exports = JSONFieldExtractor;

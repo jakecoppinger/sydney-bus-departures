@@ -1,9 +1,6 @@
-'use strict';
-/*jslint node: true */
-/*jshint esversion: 6 */
-var fs = require('fs');
+import fs from 'fs';
 
-var BusStopDepartures = require('./BusStopDepartures.js');
+import {BusStopDepartures } from './BusStopDepartures'
 const apikey = process.env.TFNSW_KEY;
 
 const writeString = (str) => {
@@ -16,7 +13,7 @@ const writeString = (str) => {
 };
 
 var stopID = "203327";
-var stop = new BusStopDepartures(apikey);
+var stop = new (BusStopDepartures as any)(apikey);
 
 stop.getDeparturesForStop(stopID, () => {
     writeString(JSON.stringify(stop.rawData(),null,2));

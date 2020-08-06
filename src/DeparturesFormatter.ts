@@ -1,10 +1,6 @@
-'use strict';
-/*jslint node: true */
-/*jshint esversion: 6 */
+import * as moment from 'moment-timezone';
 
-const moment = require("moment-timezone");
-
-const DeparturesFormatter = function(data) {
+export function DeparturesFormatter(data) {
     let _data = data;
 
     this._minutesUntilArrival = bus => {
@@ -122,5 +118,3 @@ const DeparturesFormatter = function(data) {
 
     return this;
 };
-
-module.exports = DeparturesFormatter;

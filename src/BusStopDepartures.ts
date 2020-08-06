@@ -1,13 +1,9 @@
-'use strict';
-/*jslint node: true */
-/*jshint esversion: 6 */
+import {JSONFieldExtractor} from './JSONFieldExtractor';
+import * as moment from "moment-timezone";
+import * as request from 'request';
 
-const JSONFieldExtrator = require('./JSONFieldExtractor.js');
-const moment = require("moment-timezone");
-const request = require('request');
-
-const BusStopDepartures = function(apikey) {
-    let _tfnswData = null;
+export const BusStopDepartures = function(apikey: string) {
+    let _tfnswData: any = null;
     const _apikey = apikey;
     let _useCache = false;
     let _lastReformattedResponse = null;
@@ -131,7 +127,7 @@ const BusStopDepartures = function(apikey) {
         const rawBuses = data.stopEvents;
 
         const extractedBusFields = rawBuses.map((bus) => {
-            const extractor = new JSONFieldExtrator(bus);
+            const extractor = new (JSONFieldExtractor as any)(bus);
             return extractor.extractFields(_desiredFields);
         });
 
@@ -172,5 +168,3 @@ const BusStopDepartures = function(apikey) {
 
     return this;
 };
-
-module.exports = BusStopDepartures;

@@ -5,10 +5,13 @@
   "main": "main.js",
   "scripts": {
     "serverless-dev": "serverless offline start --port=3000",
-    "dev": "node main.js",
-    "server": "node server.js",
+    "dev": "node -r source-map-support/register dist/main.js",
+    "server": "node -r source-map-support/register dist/server.js",
     "deploy": "serverless deploy",
-    "logs": "serverless logs --function departures"
+    "logs": "serverless logs --function departures",
+    "build": "./node_modules/typescript/bin/tsc",
+    "test": "ts-mocha test/**/*.ts",
+    "start-aws-uploader": "node -r source-map-support/register dist/aws-uploader.js"
   },
   "repository": {
     "type": "git",
@@ -26,13 +29,17 @@
     "jshint-stylish": "^2.2.1"
   },
   "dependencies": {
+    "@types/express": "^4.17.7",
+    "@types/moment-timezone": "^0.5.13",
     "aws-serverless-express": "^3.0.2",
     "express": "^4.15.3",
     "moment-timezone": "^0.5.13",
     "request": "^2.81.0",
     "serverless": "^1.78.1",
     "serverless-offline": "^3.15.1",
-    "serverless-plugin-include-dependencies": "^2.1.2"
+    "serverless-plugin-include-dependencies": "^2.1.2",
+    "ts-mocha": "^6.0.0",
+    "typescript": "^3.4.5"
   },
   "engines": {
     "node": "8.1.4"
