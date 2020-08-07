@@ -1,19 +1,34 @@
 import * as moment from 'moment-timezone';
+import { Bus } from './interfaces';
 
-export function DeparturesFormatter(data: any): {minutes: number, realtime: boolean} {
+interface ArrivalInfo {
+minutes: number;
+realtime: boolean;
+}
+
+
+function minutesUntilArrival (bus: Bus): number {
+    const ts: string = bus.realtimeEnabled ? bus.departureTimeEstimated : bus.departureTimePlanned;
+    const busTimestamp = moment(ts).tz('Australia/Sydney');;
+    const zeroSecondsNow = moment().set({ second: 0, millisecond: 0 });
+    const duration = moment.duration(busTimestamp.diff(zeroSecondsNow));
+    return duration.asMinutes();
+};
+
+export function DeparturesFormatter(data: Bus[]) {
     let _data = data;
 
-    this._minutesUntilArrival = (bus: any) => {
-        let timestampString: string  = bus.departureTimePlanned;
+    this._minutesUntilArrival = (bus: Bus): ArrivalInfo => {
+        let timestampString: string = bus.departureTimePlanned;
         let realtime = false;
 
-        if(typeof bus.realtimeEnabled!== "undefined" ) {
+        if (typeof bus.realtimeEnabled !== "undefined") {
             timestampString = bus.departureTimeEstimated;
             realtime = true;
         }
-        
+
         const busTimestamp = moment(timestampString).tz('Australia/Sydney');;
-        const zeroSecondsNow = moment().set({second:0,millisecond:0});
+        const zeroSecondsNow = moment().set({ second: 0, millisecond: 0 });
         var duration = moment.duration(busTimestamp.diff(zeroSecondsNow));
 
         return {
@@ -22,39 +37,52 @@ export function DeparturesFormatter(data: any): {minutes: number, realtime: bool
         };
     };
 
+    this.routeSummaryObjString = (routes: string[], numDepartures: number) => {
+        const selectedBuses = _data.filter(
+            (bus: any) => routes.indexOf(bus.number) != -1);
+        
+        const relevant = selectedBuses.map(bus => ({
+            number: bus.number,
+            realtime: bus.realtimeEnabled,
+            minutes: minutesUntilArrival(bus)
+        }))
+        const sorted = [...relevant].sort((a, b) => a.minutes - b.minutes);
+        const truncated = sorted.slice(0,Math.min(numDepartures, sorted.length -1));
+        return truncated;
+    };
     // Create summary string of selected routes
     // eg "396,394: 6m,[6m],[6m]"
-    this.routeSummaryString = (routes: string[] ,numDeparturesRaw: number) => {
+    this.routeSummaryString = (routes: string[], numDeparturesRaw: number) => {
         let output = routes.join("/") + ": ";
 
         const selectedBuses = _data.filter(
-            (bus:any) => routes.indexOf(bus.number) != -1);  
+            (bus: any) => routes.indexOf(bus.number) != -1);
 
         let arrivalLengths = selectedBuses.map(
             (bus: any) => this._minutesUntilArrival(bus));
 
         // Sort arrivals by soonest first
-        arrivalLengths.sort((a:any ,b:any)=>a.minutes - b.minutes);
+        arrivalLengths.sort((a: any, b: any) => a.minutes - b.minutes);
 
         // Only show first `numDepartures` arrivals
         let numDepartures = arrivalLengths.length;
-        if(numDepartures != -1) {
+        if (numDepartures != -1) {
             numDepartures = Math.min(
                 numDeparturesRaw, arrivalLengths.length
-                );
+            );
         }
 
-        for(let i = 0; i < numDepartures; i++) {
+        for (let i = 0; i < numDepartures; i++) {
             const duration = arrivalLengths[i];
 
-            if(duration.realtime) {
+            if (duration.realtime) {
                 output += duration.minutes + "m";
             } else {
                 output += "[" + duration.minutes + "m]";
             }
 
-            if(i != numDepartures - 1) {
-               output += ","; 
+            if (i != numDepartures - 1) {
+                output += ",";
             }
         }
         return output;
@@ -63,8 +91,8 @@ export function DeparturesFormatter(data: any): {minutes: number, realtime: bool
     // Return array of routes that are arriving in the data
     this.stoppingServices = () => {
         let routes: any[] = [];
-        _data.forEach((bus: any) => {
-            if(routes.indexOf(bus.number) == -1) {
+        _data.forEach((bus: Bus) => {
+            if (routes.indexOf(bus.number) == -1) {
                 routes.push(bus.number);
             }
         });
@@ -79,19 +107,19 @@ export function DeparturesFormatter(data: any): {minutes: number, realtime: bool
             let timestampString = bus.departureTimePlanned;
             let realtime = false;
 
-            if(typeof bus.realtimeEnabled!== "undefined" ) {
+            if (typeof bus.realtimeEnabled !== "undefined") {
                 timestampString = bus.departureTimeEstimated;
                 realtime = true;
             }
-            
+
             const timestamp = moment(timestampString);
             const diff = moment.duration(timestamp.diff(now));
             const minutes = diff.minutes();
 
             return {
-                "number":number,
-                "minutes":minutes,
-                "realtime":realtime
+                "number": number,
+                "minutes": minutes,
+                "realtime": realtime
             };
         });
     };
@@ -100,14 +128,14 @@ export function DeparturesFormatter(data: any): {minutes: number, realtime: bool
         let output = "";
         let departureLines = this.departuresBoardJSON();
 
-        departureLines.sort(function(a:any, b: any) { 
+        departureLines.sort(function (a: any, b: any) {
             return a.minutes - b.minutes;
         });
 
-        departureLines.forEach((departure:any ) => {
+        departureLines.forEach((departure: any) => {
             output += departure.number + ": " + departure.minutes + "m";
 
-            if(!departure.realtime) {
+            if (!departure.realtime) {
                 output += "  (scheduled)";
             }
 

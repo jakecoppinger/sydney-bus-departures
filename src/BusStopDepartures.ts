@@ -1,6 +1,8 @@
 import {JSONFieldExtractor} from './JSONFieldExtractor';
 import * as moment from "moment-timezone";
 import * as request from 'request';
+import {Bus} from './interfaces';
+
 
 export function BusStopDepartures(apikey: string) {
     let _tfnswData: any = null;
@@ -116,7 +118,7 @@ export function BusStopDepartures(apikey: string) {
     };
 
     // Processes the raw return body into selected data
-    this._processData = function(data: any) {
+    this._processData = function(data: any): Bus[] {
         // Remove stopIDglobalID
         // rawBuses.forEach((bus) => {
         //     const newBus = bus;
@@ -131,7 +133,7 @@ export function BusStopDepartures(apikey: string) {
             return extractor.extractFields(_desiredFields);
         });
 
-        const reformatBus = (bus: any) => {
+        const reformatBus = (bus: any): Bus => {
             const newBus: any = {};
             Object.keys(_fieldsToReformat).forEach((newField)=>{
                 const oldFields = _fieldsToReformat[newField];

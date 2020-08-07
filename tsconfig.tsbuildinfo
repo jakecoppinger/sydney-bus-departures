@@ -486,19 +486,24 @@
         "signature": "d3c7c28e24c242c1054c6865bb6704914dfdb212063701c6fb02a8a477d00098",
         "affectsGlobalScope": false
       },
+      "./src/interfaces.ts": {
+        "version": "3a59c53679d0f501bec3dd4201020b7e45175b8c15f220c92fda500df5e363cd",
+        "signature": "c2714c10b64f2bd8810b356678c0cb7ef68de1611985c34b4dafdacac287fbfa",
+        "affectsGlobalScope": false
+      },
       "./src/busstopdepartures.ts": {
-        "version": "eb536ac680eb0329852a5f449615a6869cbf92453b8f200a7f48c0cbe589f673",
+        "version": "f3531d8546752e008dc4fb443dbfb07305a52e9f9bc9bd518f49b02768a5aa16",
         "signature": "c09fcf2e539effc9cfc26c899745daf3796bc3067560ba533a835cbc49e6bf74",
         "affectsGlobalScope": false
       },
       "./src/departuresformatter.ts": {
-        "version": "773a8b53a027824c02cac8d1b33ce59da43c148216a87ff9b4e4cea818e29328",
-        "signature": "603b0e32dc60fea7f9e4b5f0cf8c9144cf2bb905f1f8cadeafbcd44ccedbdc31",
+        "version": "53da30c82ee3a9e06a739be98eccc2d5468c7f111fb06b911a5bb4a0c8425d28",
+        "signature": "98381a1b0ecbb9d548c9627ed1a252044b11d83dd21fc50d7361da71d42e06fb",
         "affectsGlobalScope": false
       },
       "./src/functions/summary.ts": {
-        "version": "ac6b1cfdadb2e4e8239d8dd165cebc8ba505347eac3856a9aaace1d873c989f8",
-        "signature": "4da608a7e3ac3ee5fdce8e1d5c45f192034e4377186e75d783e677b3ce098118",
+        "version": "0e41c0e56b4730bc97580a44564867eea18c9156b6752ce0898f02589b6604f2",
+        "signature": "4602f106db00e1a927e8018be689532a02ed20063d1aa3753f584d577a550cc5",
         "affectsGlobalScope": false
       },
       "./src/functions/departures.ts": {
@@ -507,7 +512,7 @@
         "affectsGlobalScope": false
       },
       "./src/app.ts": {
-        "version": "bac1ad47bb2ed626b41063c266aa34a941e44aa46049dfaba7781ab81fa7fbf3",
+        "version": "b53270380048cc1d6abd0a13d83538de4333922632342d87a049905d13fa2cef",
         "signature": "4654f92731de7c18eb496ebf4134d15c881a25c2d6579affd293cde1951e4ced",
         "affectsGlobalScope": false
       },
@@ -2320,6 +2325,7 @@
         "./node_modules/@types/node/ts3.2/util.d.ts",
         "./node_modules/@types/node/util.d.ts",
         "./node_modules/@types/request/index.d.ts",
+        "./src/interfaces.ts",
         "./src/jsonfieldextractor.ts"
       ],
       "./src/departuresformatter.ts": [
@@ -2329,7 +2335,8 @@
         "./node_modules/@types/node/ts3.2/fs.d.ts",
         "./node_modules/@types/node/ts3.2/process.d.ts",
         "./node_modules/@types/node/ts3.2/util.d.ts",
-        "./node_modules/@types/node/util.d.ts"
+        "./node_modules/@types/node/util.d.ts",
+        "./src/interfaces.ts"
       ],
       "./src/functions/departures.ts": [
         "./node_modules/@types/node/fs.d.ts",
@@ -2357,6 +2364,14 @@
         "./node_modules/@types/node/util.d.ts",
         "./src/busstopdepartures.ts",
         "./src/departuresformatter.ts"
+      ],
+      "./src/interfaces.ts": [
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/process.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/process.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts"
       ],
       "./src/jsonfieldextractor.ts": [
         "./node_modules/@types/node/fs.d.ts",
@@ -3898,6 +3913,9 @@
       ],
       "./src/app.ts": [
         "./node_modules/@types/express-serve-static-core/index.d.ts"
+      ],
+      "./src/departuresformatter.ts": [
+        "./src/interfaces.ts"
       ]
     },
     "semanticDiagnosticsPerFile": [
@@ -4052,6 +4070,7 @@
       "./src/functions/departures.ts",
       "./src/functions/hello.ts",
       "./src/functions/summary.ts",
+      "./src/interfaces.ts",
       "./src/jsonfieldextractor.ts",
       "./src/lambda.ts",
       "./src/server.ts"
